@@ -21,10 +21,12 @@ use App\Http\Controllers\FullCalendarController;
 Route::get('/index', 'App\Http\Controllers\PagesController@index');
 Route::get('/booking', 'App\Http\Controllers\PagesController@booking');
 Route::get('/services', 'App\Http\Controllers\PagesController@services');
+
 Route::resource('/posts', 'App\Http\Controllers\PostsController');
-//Route::resource('/events', 'App\Http\Controllers\EventController');
-Route::get('/events/create', 'App\Http\Controllers\EventController@create');
-Route::get('/events/list', 'App\Http\Controllers\EventController@index');
+
+Route::resource('/records', 'App\Http\Controllers\ChildController');
+
+
 Route::get('/welcome', function(){
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

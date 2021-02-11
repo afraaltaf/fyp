@@ -9,7 +9,7 @@ class Child extends Model
 {
     use HasFactory;
     //Table Name
-    protected $table = 'child';
+    protected $table = 'child_record';
     //Primary Key
     public $primaryKey ='id';
     //timestamps

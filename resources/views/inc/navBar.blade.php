@@ -13,7 +13,9 @@
 
             </ul>
              <ul class="navbar-nav mr-auto">
-        <li><a class="nav-link" href="/index">Add Child Details<span class="sr-only"></span></a>
+        <li><a class="nav-link" href="/index">Home<span class="sr-only"></span></a>
+        </li>
+        <li><a class="nav-link" href="/records/create">Add Child Details<span class="sr-only"></span></a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="/booking">Book Lessons<span class="sr-only"></span></a>

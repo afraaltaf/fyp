@@ -26,8 +26,8 @@ class AddUserIdToChildRecord extends Migration
      */
     public function down()
     {
-        Schema::table('child_record', function (Blueprint $table) {
-                $table->dropColumn('user_id');
+        Schema::table('child_record', function ($table) {
+                $table->dropIfExists('user_id');
             });
     
     }

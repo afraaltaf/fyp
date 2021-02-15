@@ -10,21 +10,26 @@
 
             </div>
             <div class = "form-group">
-                {{Form::label('date of birth', 'Date of Birth')}}
-                {{Form::text('date of birth', '', [ 'class' => 'form-control', 'placeholder'=> 'DOB' ])}}
+                {{Form::label('dateOfBirth', 'Date of Birth')}}
+                {{Form::text('dateOfBirth', '', [ 'class' => 'form-control', 'placeholder'=> 'DOB' ])}}
             </div>
             <div class = "form-group">
                 {{Form::label('gender', 'Gender')}}
                 {{Form::text('gender', '', [ 'class' => 'form-control', 'placeholder'=> 'gender' ])}}
             </div>
             <div class = "form-group">
-                {{Form::label('current academic year', 'Current Academic Year')}}
-                {{Form::text('gender', '', [ 'class' => 'form-control', 'placeholder'=> 'current academic year' ])}}
+                {{Form::label('schoolYear', 'Current Academic Year')}}
+                {{Form::text('schoolYear', '', [ 'class' => 'form-control', 'placeholder'=> 'school year' ])}}
             </div>
             <div class = "form-group">
+                <div class = "form-group">
+                    {{Form::label('nameOfSchool', 'Name of school')}}
+                    {{Form::text('nameOfSchool', '', [ 'class' => 'form-control', 'placeholder'=> 'name of school' ])}}
+                </div>
+                <div class = "form-group">
                 
-                {{Form::label('additional notes', 'Additional Notes')}}
-                {{Form::textarea('additional notes', '', [ 'class' => 'form-control', 'placeholder'=> '...' ])}}
+                {{Form::label('additionalNotes', 'Additional Notes')}}
+                {{Form::textarea('additionalNotes', '', [ 'class' => 'form-control', 'placeholder'=> '...' ])}}
             </div>
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
         {!! Form::close() !!}

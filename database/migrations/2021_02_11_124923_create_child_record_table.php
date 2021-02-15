@@ -17,11 +17,11 @@ class CreateChildRecordTable extends Migration
             
             $table->id();
             $table->string('name');
-            $table->string('date of birth');
+            $table->string('dateOfBirth');
             $table->string('gender');
-            $table->string('current academic year');
-            $table->string('name of school');
-            $table->text('additional notes')->nullable();
+            $table->string('schoolYear');
+            $table->string('nameOfSchool');
+            $table->text('additionalNotes')->nullable();
             $table->timestamps();
         });
     }

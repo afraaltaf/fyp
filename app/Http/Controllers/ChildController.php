@@ -7,6 +7,18 @@ use App\Models\Child;
 
 class ChildController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+       // $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +39,7 @@ class ChildController extends Controller
     public function create()
     {
         //
+        
         return view('records.create');
     }
 
@@ -41,22 +54,22 @@ class ChildController extends Controller
         //
         $this->validate($request, [
             'name' => 'required',
-            'date of birth' => 'required',
+            'dateOfBirth' => 'required',
             'gender' => 'required',
-            'current academic year' => 'required',
-            'name of school' => 'required',
-            'additional notes' => 'required'
+            'schoolYear' => 'required',
+            'nameOfSchool' => 'required',
+            'additionalNotes' => 'required'
         ]);
 
         //Create Child record
 
         $record = new Child;
         $record->name = $request->input('name');
-        $record->dateOfBirth =  $request->input('date of birth');
+        $record->dateOfBirth =  $request->input('dateOfBirth');
         $record->gender =  $request->input('gender');
-        $record->currentAcademicYear =  $request->input('current academic year');
-        $record->nameOfSchool =  $request->input('name of school');
-        $record->additionalNotes =  $request->input('additional notes');
+        $record->schoolYear =  $request->input('schoolYear');
+        $record->nameOfSchool =  $request->input('nameOfSchool');
+        $record->additionalNotes =  $request->input('additionalNotes');
         $record->user_id = auth()->user()->id;
         $record->save();
 
@@ -103,30 +116,30 @@ class ChildController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //
+       $this->validate($request, [
+        'name' => 'required',
+        'dateOfBirth' => 'required',
+        'gender' => 'required',
+        'schoolYear' => 'required',
+        'nameOfSchool' => 'required',
+        'additionalNotes' => 'required'
+    ]);
 
-        $this->validate($request, [
-            'name' => 'required',
-            'date of birth' => 'required',
-            'gender' => 'required',
-            'current academic year' => 'required',
-            'name of school' => 'required',
-            'additional notes' => 'required'
-        ]);
+    //Create Child record
 
-            //Create Child record
+    $record = new Child;
+    $record->name = $request->input('name');
+    $record->dateOfBirth =  $request->input('dateOfBirth');
+    $record->gender =  $request->input('gender');
+    $record->currentAcademicYear =  $request->input('schoolYear');
+    $record->nameOfSchool =  $request->input('nameOfSchool');
+    $record->additionalNotes =  $request->input('additionalNotes');
+    $record->user_id = auth()->user()->id;
+    $record->save();
 
-            $record = new Child;
-            $record->name = $request->input('name');
-            $record->dateOfBirth =  $request->input('date of birth');
-            $record->gender =  $request->input('gender');
-            $record->currentAcademicYear =  $request->input('current academic year');
-            $record->nameOfSchool =  $request->input('name of school');
-            $record->additionalNotes =  $request->input('additional notes');
-            $record->user_id = auth()->user()->id;
-            $record->save();
+    return redirect('/records')->with('success', 'Child Record Created');
 
-            return redirect('/records')->with('success', 'Child Record Updated');
     }
 
     /**

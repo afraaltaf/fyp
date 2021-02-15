@@ -16,9 +16,10 @@ class PagesController extends Controller
         $title = 'Book Lesson';
         return view ('pages.booking')->with('title', $title);
      }
+     
      public function services(){
          $data = array(
-             'title' => 'Services',
+             'title' => 'Scheduled ',
              'services' => ['Web Design', 'Programming', 'SEO']
          );
 

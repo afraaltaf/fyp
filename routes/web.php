@@ -23,12 +23,11 @@ Route::get('/booking', 'App\Http\Controllers\PagesController@booking');
 Route::get('/services', 'App\Http\Controllers\PagesController@services');
 
 Route::resource('/posts', 'App\Http\Controllers\PostsController');
-
 Route::resource('/records', 'App\Http\Controllers\ChildController');
-
+Route::resource('/events', 'App\Http\Controllers\EventController');
 
 Route::get('/welcome', function(){
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'posts']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 

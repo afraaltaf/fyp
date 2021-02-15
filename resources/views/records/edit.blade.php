@@ -11,7 +11,7 @@
             </div>
             <div class = "form-group">
                 {{Form::label('date of birth', 'Date of Birth')}}
-                {{Form::text('date of birth', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder'=> 'DOB' ])}}
+                {{Form::text('date of birth', '', [ 'class' => 'form-control', 'placeholder'=> 'DOB' ])}}
             </div>
             <div class = "form-group">
                 {{Form::label('gender', 'Gender')}}

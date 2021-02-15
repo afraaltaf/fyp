@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('TSS', 'TSS') }}
@@ -17,6 +17,7 @@
         </li>
         <li><a class="nav-link" href="/records/create">Add Child Details<span class="sr-only"></span></a>
         </li>
+        <li><a class="nav-link" href="/records">Children Registered<span class="sr-only"></span></a>
         <li class="nav-item active">
             <a class="nav-link" href="/booking">Book Lessons<span class="sr-only"></span></a>
           </li>
@@ -24,7 +25,14 @@
             <a class="nav-link" href="/services">Scheduled Bookings<span class="sr-only"></span></a>
           </li>
           <li class="nav-item active">
+            <li class="nav-item active">
+            <a class="nav-link" href="/services">Tutor Profiles<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
             <a class="nav-link" href="/posts">Progress Trackers<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/events/create">Test<span class="sr-only"></span></a>
           </li>
         </ul>
         
@@ -65,4 +73,5 @@
         </div>
     </div>
 </nav>
-  
+
+

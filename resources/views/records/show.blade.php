@@ -16,9 +16,8 @@
         {!!$record->nameOfSchool!!}
        </div>
        <div>
-        {!!$record->Additional Notes!!}
+        {!!$record->AdditionalNotes!!}
        </div>
-       
         <small>Record Created on {{$record->created_at}} by {{$record->user->name}}</small>
         <hr>
         @if(!Auth::guest())

@@ -1,45 +1,19 @@
-@extends('layout')
+
+@extends('layouts.app')
+ 
 
 @section('content')
-
-<div class="row">
-	<div clss="col-lg-12">
-		<ol class="breadcrumb">
-			<li class="active">You are here: Home</li>
-		</ol>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-12">
-		<div id='calendar'></div>
-	</div>
-</div>
-@endsection
-
-@section('js')
-<script src="{{ url('_asset/fullcalendar') }}/fullcalendar.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		
-		var base_url = '{{ url('/') }}';
-		$('#calendar').fullCalendar({
-			weekends: true,
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			editable: false,
-			eventLimit: true, // allow "more" link when too many events
-			events: {
-				url: base_url + '/api',
-				error: function() {
-					alert("cannot load json");
-				}
-			}
-		});
-	});
-</script>
-@endsection
+     <h1>Bookings</h1>
+     @if(count($events) > 0)
+       @foreach ($events as $event)
+         <div class = "well">
+           <h3><a href= "/events/{{$event->id}}">{{$event->tutorName}}</a></h3>
+           <small>Booking Created On {{$event->created_at}} by {{$event->user->name}}</small>
+         </div>
+       @endforeach
+       <hr>
+       {{$events->links()}}
+     @else
+         <p>No Bookings Found</p>
+     @endif
 

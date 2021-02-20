@@ -13,11 +13,11 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 15);
-			$table->string('title', 100);
-			$table->timestamp('start_time');
-			$table->timestamp('end_time')->nullable();
+            $table->id();
+            $table->string('tutorName', 15);
+			$table->string('subject', 100);
+            $table->date('date', 15);
+			$table->string('time', 10);
 			$table->timestamps();
         });
     }
@@ -29,7 +29,7 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('events');
+        Schema::dropIfExists('events');
     }
 }
 

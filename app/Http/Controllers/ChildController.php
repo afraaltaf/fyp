@@ -14,7 +14,7 @@ class ChildController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth', ['except' => ['index', 'show']]);
+       $this->middleware('auth');
     }
 
 
@@ -28,7 +28,13 @@ class ChildController extends Controller
     {
         //
         $record = Child::orderBy('created_at')->paginate(10);
-        return view('records.index')->with('records', $record);
+        if(auth()->user()->id == $record->user_id){
+            return view('records.index')->with('records', $record);
+            }
+      //  return view('records.index')->with('records', $record);
+    
+    
+       
     }
 
     /**
@@ -102,9 +108,10 @@ class ChildController extends Controller
 
         //check the correct user
         if(auth()->user()->id !== $record->user_id){
-            return redirect('/records')->with('error', 'Unauthorised Page');
+            return view ('records.edit')->with('record', $record);
+         //   return redirect('/records')->with('error', 'Unauthorised Page');
         }
-        return view ('records.edit')->with('record', $record);
+     //   return view ('records.edit')->with('record', $record);
     }
 
     /**
@@ -128,17 +135,19 @@ class ChildController extends Controller
 
     //Create Child record
 
-    $record = new Child;
+    $record = Child::find($id);
     $record->name = $request->input('name');
     $record->dateOfBirth =  $request->input('dateOfBirth');
     $record->gender =  $request->input('gender');
-    $record->currentAcademicYear =  $request->input('schoolYear');
+    $record->schoolYear =  $request->input('schoolYear');
     $record->nameOfSchool =  $request->input('nameOfSchool');
     $record->additionalNotes =  $request->input('additionalNotes');
     $record->user_id = auth()->user()->id;
     $record->save();
 
-    return redirect('/records')->with('success', 'Child Record Created');
+    if(auth()->user()->id == $record->user_id){
+    return redirect('/records')->with('success', 'Child Record Updated');
+    }
 
     }
 
@@ -152,11 +161,11 @@ class ChildController extends Controller
     {
         //
 
-        $post = Post::find($id);
+        $record = Child::find($id);
 
         //check the correct user
         if(auth()->user()->id !== $record->user_id){
-            return redirect('/records')->with('error', 'Unauthorised Page');
+            //return redirect('/records')->with('error', 'Unauthorised Page');
         }
 
         $record->delete();

@@ -1,81 +1,51 @@
-@extends('layout')
+@extends('layouts.app')
+ 
 
-@section('content')
+   @section('content')
+        <h1>Make a booking</h1>
+            {!! Form::open(['action' => ['\App\Http\Controllers\EventController@update', $event->id], 'method' => 'POST']) !!}
+            <div class = "form-group">
+                {{Form::label('tutorName', 'Tutor') }}
+                <select name="tutorName" id="">
+                    <option value="Miss A">Miss A</option>
+                    <option value="Mr B">Mr B</option>
+                    <option value="Mr C">Mr C</option>
+                    <option value="Ms D">Ms D</option>
+                    <option value="Miss E">Miss E</option>
+                    <option value="Mrs F">Mrs F</option>
+                    <option value="Mrs G">Mrs G</option>
+                    <option value="Mrs H">Mrs H</option>
+                  </select>
+            </div>
+            <div class = "form-group">
+                {{Form::label('subject', 'Subject') }}
+                <select name="subject" id="">
+                    <option value="Maths">Maths</option>
+                    <option value="English Language">English Literature</option>
+                    <option value="English Literature">English Language</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Physics">Physics</option>
+                  </select>
+            </div>
+            <div class = "form-group">
+                {{Form::label('date', 'Date') }}
+                {{Form::label('date', 'Date') }}
+                <input type="date" id="date" name="date">
+            </div>
+            <div class = "form-group">
+                {{Form::label('time', 'Time')}}
+                {{Form::text('time', '', [ 'class' => 'form-control', 'placeholder'=> 'time' ])}}
+            </div>
+            {{Form::hidden('_method', 'PUT')}}
+            {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+        {!! Form::close() !!}
 
-<div class="row">
-	<div clss="col-lg-12">
-		<ol class="breadcrumb">
-			<li>You are here: <a href="{{ url('/') }}">Home</a></li>
-			<li><a href="{{ url('/events') }}">Events</a></li>
-			<li class="active">Edit - {{ $event->title }}</li>
-		</ol>
-	</div>
-</div>
+    @endsection
 
-<div class="row">
-	<div class="col-lg-6">
-		
-		@if($errors)
-			@foreach($errors->all() as $error)
-			<p>{{ $error }}</p>
-			@endforeach
-		@endif
-		
-		<form action="{{ url('events/' . $event->id) }}" method="POST">
-			{{ csrf_field() }}
-			<input type="hidden" name="_method" value="PUT" />
-			<div class="form-group @if($errors->has('name')) has-error has-feedback @endif">
-				<label for="name">Your Name</label>
-				<input type="text" class="form-control" name="name" value="{{ $event->name }}" placeholder="E.g. Pisyek">
-				@if ($errors->has('name'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
-					{{ $errors->first('name') }}
-					</p>
-				@endif
-			</div>
-			<div class="form-group @if($errors->has('title')) has-error has-feedback @endif">
-				<label for="title">Title</label>
-				<input type="text" class="form-control" name="title" value="{{ $event->title }}" placeholder="E.g. My event's title">
-				@if ($errors->has('title'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
-					{{ $errors->first('title') }}
-					</p>
-				@endif
-			</div>
-			<div class="form-group @if($errors->has('time')) has-error @endif">
-				<label for="time">Time</label>
-				<div class="input-group">
-					<input type="text" class="form-control" name="time" value="{{ $event->start_time . ' - ' . $event->end_time }}" placeholder="Select your time">
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-				</div>
-				@if ($errors->has('time'))
-					<p class="help-block"><span class="glyphicon glyphicon-exclamation-sign"></span> 
-					{{ $errors->first('time') }}
-					</p>
-				@endif
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>		
-	</div>
-</div>
-@endsection
+    
 
-@section('js')
-<script src="{{ url('_asset/js') }}/daterangepicker.js"></script>
-<script type="text/javascript">
-$(function () {
-	$('input[name="time"]').daterangepicker({
-		"timePicker": true,
-		"timePicker24Hour": true,
-		"timePickerIncrement": 15,
-		"autoApply": true,
-		"locale": {
-			"format": "DD/MM/YYYY HH:mm:ss",
-			"separator": " - ",
-		}
-	});
-});
-</script>
-@endsection
+
+
+
+

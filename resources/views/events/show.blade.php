@@ -9,10 +9,9 @@
         <div>
             {!!$event->date!!}
        </div>
-       <div>
-        {!!$event->time!!}
-       </div>
-        <small>Booking Created on {{$event->created_at}} by {{$event->user->name}}</small>
+       
+     
+        <div>Booking Created on {{$event->created_at}} for {{$event->user->name}}</div>
         <hr>
         @if(!Auth::guest())
                @if(Auth::user()->id == $event->user_id)

@@ -27,7 +27,9 @@ class EventController extends Controller
     public function index()
     {
        
-		$event = Event::orderBy('created_at')->paginate(10);
+		//$event = Event::orderBy('created_at')->paginate(10);
+
+        $event = Event::where('user_id', auth()->user()->id)->paginate(10);
 		return view('events.index')->with('events', $event);
 
     }
@@ -57,7 +59,8 @@ class EventController extends Controller
 			'tutorName'	=> 'required',
 			'subject' => 'required',
 			'date'  => 'required',
-			'time'	=> 'required'
+            
+			
 		]);
 		
 		//Create Event Record;
@@ -66,7 +69,6 @@ class EventController extends Controller
 		$event->tutorName		= $request->input('tutorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
-		$event->time			= $request->input('time');
         $event->user_id = auth()->user()->id;
         $event->save();
 		
@@ -118,7 +120,7 @@ class EventController extends Controller
 			'tutorName'	=> 'required',
 			'subject' => 'required',
 			'date'  => 'required',
-			'time'	=> 'required'
+			
 		]);
 		
 		//Create Event Record;
@@ -127,7 +129,7 @@ class EventController extends Controller
 		$event->tutorName		= $request->input('tutorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
-		$event->time			= $request->input('time');
+		
         $event->user_id = auth()->user()->id;
 		$event->save();
 		

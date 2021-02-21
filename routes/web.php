@@ -23,7 +23,7 @@ Route::get('/booking', 'App\Http\Controllers\PagesController@booking');
 Route::get('/services', 'App\Http\Controllers\PagesController@services');
 
 
-Route::resource('/posts', 'App\Http\Controllers\PostsController');
+//Route::resource('/posts', 'App\Http\Controllers\PostsController');
 Route::resource('/records', 'App\Http\Controllers\ChildController');
 Route::resource('/events', 'App\Http\Controllers\EventController');
 

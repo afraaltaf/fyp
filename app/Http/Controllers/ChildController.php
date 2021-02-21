@@ -15,9 +15,10 @@ class ChildController extends Controller
     public function __construct()
     {
        $this->middleware('auth');
+    
+
     }
-
-
+    
 
     /**
      * Display a listing of the resource.
@@ -26,15 +27,13 @@ class ChildController extends Controller
      */
     public function index()
     {
-        //
-        $record = Child::orderBy('created_at')->paginate(10);
-        if(auth()->user()->id == $record->user_id){
-            return view('records.index')->with('records', $record);
-            }
-      //  return view('records.index')->with('records', $record);
+        
+       // $record = Child::orderBy('created_at')->paginate(10);
+       $record = Child::where('user_id', auth()->user()->id)->paginate(10);
+       return view('records.index')->with('records', $record);
+
     
     
-       
     }
 
     /**
@@ -92,8 +91,13 @@ class ChildController extends Controller
     public function show($id)
     {
         //
-        $record = Child::find($id);
-        return view ('records.show')->with('record',$record);
+       // DB::table('users');
+       // ->where('id', auth()->user()->id){
+       // $record = Child::find($id);
+       $record = Child::find($id);
+       return view ('records.show')->with('record',$record);
+        //}
+        
     }
 
     /**
@@ -108,10 +112,9 @@ class ChildController extends Controller
 
         //check the correct user
         if(auth()->user()->id !== $record->user_id){
-            return view ('records.edit')->with('record', $record);
-         //   return redirect('/records')->with('error', 'Unauthorised Page');
+          return redirect('/records')->with('error', 'Unauthorised Page');
         }
-     //   return view ('records.edit')->with('record', $record);
+       return view ('records.edit')->with('record', $record);
     }
 
     /**
@@ -145,9 +148,9 @@ class ChildController extends Controller
     $record->user_id = auth()->user()->id;
     $record->save();
 
-    if(auth()->user()->id == $record->user_id){
+   
     return redirect('/records')->with('success', 'Child Record Updated');
-    }
+    
 
     }
 
@@ -162,14 +165,14 @@ class ChildController extends Controller
         //
 
         $record = Child::find($id);
-
         //check the correct user
         if(auth()->user()->id !== $record->user_id){
-            //return redirect('/records')->with('error', 'Unauthorised Page');
+            return redirect('/records')->with('error', 'Unauthorised Page');
         }
 
         $record->delete();
 
         return redirect('/records')->with('success', 'Child Record Removed');
     }
+  
 }

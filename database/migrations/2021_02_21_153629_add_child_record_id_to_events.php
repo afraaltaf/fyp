@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToPosts extends Migration
+class AddChildRecordIdToEvents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddUserIdToPosts extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function ($table) {
-            $table->integer('user_id');
+        Schema::table('events', function (Blueprint $table) {
+            //
+            $table->dropIfExists('record_id');
         });
     }
 
@@ -25,8 +26,9 @@ class AddUserIdToPosts extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function ($table) {
-            $table->dropColumn('user_id');
+        Schema::table('events', function (Blueprint $table) {
+            //
+            $table->dropIfExists('record_id');
         });
     }
 }

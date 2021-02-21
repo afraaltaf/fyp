@@ -18,4 +18,9 @@ class Event extends Model
     public function user(){
           return $this->belongsTo('App\Models\User');
     }
+    public function record()
+    {
+        return $this->belongsTo('App\Models\Child');
+    }
+   
 }

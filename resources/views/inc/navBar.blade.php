@@ -28,9 +28,7 @@
           </li>
           <li class="nav-item active">
             <li class="nav-item active">
-          <li class="nav-item active">
-            <a class="nav-link" href="/posts">Progress Trackers<span class="sr-only"></span></a>
-          </li>
+          
           
         
 

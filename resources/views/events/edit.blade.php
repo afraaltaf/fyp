@@ -33,10 +33,7 @@
                 {{Form::label('date', 'Date') }}
                 <input type="date" id="date" name="date">
             </div>
-            <div class = "form-group">
-                {{Form::label('time', 'Time')}}
-                {{Form::text('time', '', [ 'class' => 'form-control', 'placeholder'=> 'time' ])}}
-            </div>
+            
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
         {!! Form::close() !!}

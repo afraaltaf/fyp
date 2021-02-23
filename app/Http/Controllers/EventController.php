@@ -15,7 +15,7 @@ class EventController extends Controller
 {
 
 
-    public function __construct()
+        public function __construct()
     {
        $this->middleware('auth');
     }
@@ -69,7 +69,8 @@ class EventController extends Controller
 		$event->tutorName		= $request->input('tutorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
-        $event->user_id = auth()->user()->id;
+        $event->user_id         = auth()->user()->id;
+       // $event->child_id        = $event->ChildController()->id;
         $event->save();
 		
 		
@@ -129,8 +130,9 @@ class EventController extends Controller
 		$event->tutorName		= $request->input('tutorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
-		
-        $event->user_id = auth()->user()->id;
+		$event->child_id        = $request->child()->id;
+        $event->user_id         = auth()->user()->id;
+       // $event->child_id         = child()->id;
 		$event->save();
 		
 		

@@ -20,7 +20,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'role_id',
+        'subject'
     ];
 
     /**
@@ -49,4 +51,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function records(){
         return $this->hasMany('App\Models\Child');
     }
+
+    public function events(){
+        return $this->hasMany('App\Models\Events');
+    }
+
+   
+
 }

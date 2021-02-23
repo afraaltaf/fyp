@@ -8,19 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    //Table Name
+   
+
+     //Table Name
     protected $table = 'events';
     //Primary Key
     public $primaryKey ='id';
     //timestamps
     public $timestamps = true;
 
+    // protected $attributes = [
+    //     'child_id' => '0'
+    // ];
+
+
     public function user(){
           return $this->belongsTo('App\Models\User');
     }
-    public function record()
-    {
-        return $this->belongsTo('App\Models\Child');
-    }
+    
+
    
 }

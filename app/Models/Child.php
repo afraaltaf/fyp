@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Child extends Model
 {
     use HasFactory;
+   
     //Table Name
     protected $table = 'child_record';
     //Primary Key
@@ -18,4 +19,6 @@ class Child extends Model
     public function user(){
           return $this->belongsTo('App\Models\User');
     }
+    
+    
 }

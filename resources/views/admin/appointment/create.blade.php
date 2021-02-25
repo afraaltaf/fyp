@@ -56,7 +56,6 @@
          <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
         </div>
     </div>
-
     <div class="card">
         <div class="card-header">
             Choose AM time
@@ -72,42 +71,15 @@
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td><input type="checkbox" name="time[]"  value="6am">6am</td>
-                  <td><input type="checkbox" name="time[]"  value="6.20am">6.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="6.40am">6.40am</td>
-                </tr>
-                 <tr>
+                  <td><input type="checkbox" name="time[]"  value="9am-9.55am">9am-9.55am</td>
+                <tr>
                   <th scope="row">2</th>
-                  <td><input type="checkbox" name="time[]"  value="7am">7am</td>
-                  <td><input type="checkbox" name="time[]"  value="7.20am">7.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="7.40am">7.40am</td>
+                  <td><input type="checkbox" name="time[]"  value="10am-10.55am">10am-10.55am</td>
                 </tr>
-                 <tr>
+
+                <tr>
                   <th scope="row">3</th>
-                  <td><input type="checkbox" name="time[]"  value="8am">8am</td>
-                  <td><input type="checkbox" name="time[]"  value="8.20am">8.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="8.40am">8.40am</td>
-                </tr>
-
-                <tr>
-                  <th scope="row">4</th>
-                  <td><input type="checkbox" name="time[]"  value="9am">9am</td>
-                  <td><input type="checkbox" name="time[]"  value="9.20am">9.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="9.40am">9.40am</td>
-                </tr>
-
-                <tr>
-                  <th scope="row">5</th>
-                  <td><input type="checkbox" name="time[]"  value="10am">10am</td>
-                  <td><input type="checkbox" name="time[]"  value="10.20am">10.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="10.40am">10.40am</td>
-                </tr>
-
-                <tr>
-                  <th scope="row">6</th>
-                  <td><input type="checkbox" name="time[]"  value="11am">11am</td>
-                  <td><input type="checkbox" name="time[]"  value="11.20am">11.20am</td>
-                  <td><input type="checkbox" name="time[]"  value="11.40am">11.40am</td>
+                  <td><input type="checkbox" name="time[]"  value="11am-11.55am">11am-11.55am</td>
                 </tr>
             
             
@@ -127,69 +99,44 @@
                
               <tbody>
                 <tr>
-                  <th scope="row">7</th>
-                  <td><input type="checkbox" name="time[]"  value="12pm">12pm</td>
-                  <td><input type="checkbox" name="time[]"  value="12.20pm">12.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="12.40pm">12.40pm</td>
+                  <th scope="row">4</th>
+                  <td><input type="checkbox" name="time[]"  value="12pm-12.55pm">12pm-12.55pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td><input type="checkbox" name="time[]"  value="13.00pm-13.55pm">13.00pm-13.55pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td><input type="checkbox" name="time[]"  value="14.00pm-14.55pm">14.00pm-14.55pm</td>
                 </tr>
                 <tr>
                   <th scope="row">7</th>
-                  <td><input type="checkbox" name="time[]"  value="1pm">1pm</td>
-                  <td><input type="checkbox" name="time[]"  value="1.20pm">1.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="1.40pm">1.40pm</td>
+                  <td><input type="checkbox" name="time[]"  value="15.00pm-15.55pm">15.00pm-15.55pm</td>
                 </tr>
                 <tr>
                   <th scope="row">8</th>
-                  <td><input type="checkbox" name="time[]"  value="2pm">2pm</td>
-                  <td><input type="checkbox" name="time[]"  value="2.20pm">2.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="2.40pm">2.40pm</td>
+                  <td><input type="checkbox" name="time[]"  value="16.00pm-16.55pm">16.00pm-16.55pm</td>
                 </tr>
                 <tr>
                   <th scope="row">9</th>
-                  <td><input type="checkbox" name="time[]"  value="3pm">3pm</td>
-                  <td><input type="checkbox" name="time[]"  value="3.20pm">3.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="3.40pm">3.40pm</td>
+                  <td><input type="checkbox" name="time[]"  value="17.00pm-17.00pm">17.00pm-17.55pm</td>
                 </tr>
                 <tr>
                   <th scope="row">10</th>
-                  <td><input type="checkbox" name="time[]"  value="4pm">4pm</td>
-                  <td><input type="checkbox" name="time[]"  value="4.20pm">4.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="4.40pm">4.40pm</td>
+                  <td><input type="checkbox" name="time[]"  value="18.00pm-18.55pm">18.00pm-18.55pm</td>
                 </tr>
+
                 <tr>
                   <th scope="row">11</th>
-                  <td><input type="checkbox" name="time[]"  value="5pm">5pm</td>
-                  <td><input type="checkbox" name="time[]"  value="5.20pm">5.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="5.40pm">5.40pm</td>
+                  <td><input type="checkbox" name="time[]"  value="19.00pm-19.55pm">19.00pm-19.55pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">12</th>
-                  <td><input type="checkbox" name="time[]"  value="6pm">6pm</td>
-                  <td><input type="checkbox" name="time[]"  value="6.20pm">6.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="6.40pm">6.40pm</td>
-                </tr>
-                <tr>
-                  <th scope="row">13</th>
-                  <td><input type="checkbox" name="time[]"  value="7pm">7pm</td>
-                  <td><input type="checkbox" name="time[]"  value="7.20pm">7.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="7.40pm">7.40pm</td>
-                </tr>
-                <tr>
-                  <th scope="row">14</th>
-                  <td><input type="checkbox" name="time[]"  value="8pm">8pm</td>
-                  <td><input type="checkbox" name="time[]"  value="8.20pm">8.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="8.40pm">8.40pm</td>
-                </tr>
-                <tr>
-                  <th scope="row">15</th>
-                  <td><input type="checkbox" name="time[]"  value="9pm">9pm</td>
-                  <td><input type="checkbox" name="time[]"  value="9.20pm">9.20pm</td>
-                  <td><input type="checkbox" name="time[]"  value="9.40pm">9.40pm</td>
-                </tr>
+                 
                 
             
             
-              </tbody>
+            </tbody>
             </table>
         </div>
     </div>

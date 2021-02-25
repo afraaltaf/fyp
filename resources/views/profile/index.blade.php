@@ -13,11 +13,12 @@
 
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}}</p>
-                    <p>Name: {{auth()->user()->email}}</p>
-                    <p>Name: {{auth()->user()->address}}</p>
-                    <p>Name: {{auth()->user()->phone_number}}</p>
-                    <p>Name: {{auth()->user()->gender}}</p>
-                    <p>Bio: {{auth()->user()->description}}</p>
+                    <p>Email: {{auth()->user()->email}}</p>
+                    <p>Address: {{auth()->user()->address}}</p>
+                    <p>Phone Number: {{auth()->user()->phone_number}}</p>
+                    <p>Gender: {{auth()->user()->gender}}</p>
+                    <p>Student Details: {{auth()->user()->description}}</p>
+                   
 
                 </div>
             </div>
@@ -60,12 +61,11 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                       
-                            <div class="form-group">
-                            <label>Bio</label>
-                            <textarea name="description" class="form-control">{{auth()->user()->description}}</textarea>
-                            
-                        </div>
+                        <div class="form-group">
+                                    <label>Student Details</label>
+                                    <textarea name="description" class="form-control">{{auth()->user()->description}}</textarea>
+                                    
+                         </div>
                         <div class="form-group">
                             
                             <button class="btn btn-primary" type="submit">Update</button>

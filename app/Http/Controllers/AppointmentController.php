@@ -41,16 +41,20 @@ class AppointmentController extends Controller
     {
         $this->validate($request,[
             'date'=>'required|unique:appointments,date,NULL,id,user_id,'.\Auth::id(),
-            'time'=>'required'
+            'time'=>'required',
+            
+    
         ]);
         $appointment = Appointment::create([
             'user_id'=> auth()->user()->id,
-            'date' => $request->date
+            'date' => $request->date,
+            
         ]);
         foreach($request->time as $time){
             Time::create([
                 'appointment_id'=> $appointment->id,
                 'time'=> $time,
+                
                 //'stauts'=>0
             ]);
         }

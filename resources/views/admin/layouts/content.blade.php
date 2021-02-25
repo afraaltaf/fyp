@@ -28,7 +28,7 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Doctors</h6>
+                                                <h6>Tutors</h6>
                                                 <h2>{{App\Models\User::where('role_id',1)->count()}}</h2>
                                             </div>
                                             <div class="icon">

@@ -41,7 +41,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a style="color: #fff;font-weight: bold;" class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('TSS', 'TSS') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,6 +55,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+    
                         @if(auth()->check()&& auth()->user()->role->name === 'patient')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('my.booking') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('My Booking') }}</a>
@@ -125,7 +126,7 @@
 
   </script>
 <style type="text/css">
-    body{
+  body{
         background: #fff;
     }
     .ui-corner-all{
@@ -150,7 +151,7 @@
         color: #fff;
     }
     .navbar{
-        background:#6610f2!important;
+        background:#cea9dd!important;
         color: #fff!important;
     }
 </style>

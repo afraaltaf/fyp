@@ -31,12 +31,12 @@ b
                               @if($appointment->status==0)
                               <button class="btn btn-primary">Not visited</button>
                               @else 
-                              <button class="btn btn-success"> Cheked</button>
+                              <button class="btn btn-success"> Checked</button>
                               @endif
                           </td>
                         </tr>
                         @empty
-                        <td>You have no any appointments</td>
+                        <td>You have no appointments</td>
                         @endforelse
                        
                       </tbody>

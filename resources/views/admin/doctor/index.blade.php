@@ -9,7 +9,7 @@
             <i class="ik ik-inbox bg-blue"></i>
             <div class="d-inline">
                 <h5>Doctors</h5>
-                <span>list of all doctors</span>
+                <span>List of all Doctors</span>
             </div>
         </div>
     </div>

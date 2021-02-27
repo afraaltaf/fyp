@@ -14,7 +14,7 @@ class FrontendController extends Controller
     
     public function index()
     {
-    	date_default_timezone_set('Australia/Melbourne');
+    	date_default_timezone_set('Europe/London');
         if(request('date')){
             $doctors = $this->findDoctorsBasedOnDate(request('date'));
             return view('welcome',compact('doctors'));
@@ -42,7 +42,7 @@ class FrontendController extends Controller
 
     public function store(Request $request)
     {
-        date_default_timezone_set('Australia/Melbourne');
+        date_default_timezone_set('Europe/London');
         
         $request->validate(['time'=>'required']);
         $check=$this->checkBookingTimeInterval();

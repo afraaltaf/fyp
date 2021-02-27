@@ -14992,7 +14992,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    //let time = moment(date).parseZone("Australia/Melbourne");
+    //let time = moment(date).parseZone("Europe/London");
     this.loading = true;
     axios.get('/api/doctors/today').then(function (response) {
       _this2.doctors = response.data;

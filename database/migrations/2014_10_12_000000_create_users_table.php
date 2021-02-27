@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             
 
             $table->integer('role_id');
+            $table->string('student_name')->nullable();
+            $table->integer('current_academic_year')->nullable();
+            $table->string('relationship_to_student')->nullable();
             $table->string('address')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('department')->nullable();

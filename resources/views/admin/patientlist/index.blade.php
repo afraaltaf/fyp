@@ -38,6 +38,9 @@
                           <th scope="col">Email</th>
                           <th scope="col">Phone</th>
                           <th scope="col">Gender</th>
+                          <th scope="col">Student Name</th>
+                          <th scope="col">Current Academic Year</th>
+                          <th scope="col">Relationship to Student</th>
 
                           <th scope="col">Time</th>
                           <th scope="col">Doctor</th>
@@ -55,6 +58,9 @@
                           <td>{{$booking->user->email}}</td>
                           <td>{{$booking->user->phone_number}}</td>
                           <td>{{$booking->user->gender}}</td>
+                          <td>{{$booking->user->student_name}}</td>
+                          <td>{{$booking->user->current_academic_year}}</td>
+                          <td>{{$booking->user->relationship_to_student}}</td>
                           <td>{{$booking->time}}</td>
                           <td>{{$booking->doctor->name}}</td>
                           <td>
@@ -66,7 +72,7 @@
                           </td>
                         </tr>
                         @empty
-                        <td>There is no any appointments !</td>
+                        <td>There are no appointments !</td>
                         @endforelse
                        
                       </tbody>

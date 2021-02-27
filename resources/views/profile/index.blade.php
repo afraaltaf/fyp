@@ -14,11 +14,14 @@
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}}</p>
                     <p>Email: {{auth()->user()->email}}</p>
-                    <p>Address: {{auth()->user()->address}}</p>
+                    {{-- <p>Address: {{auth()->user()->address}}</p> --}}
                     <p>Phone Number: {{auth()->user()->phone_number}}</p>
                     <p>Gender: {{auth()->user()->gender}}</p>
-                    <p>Student Details: {{auth()->user()->description}}</p>
-                   
+                    <p>Student's Name: {{auth()->user()->student_name}}</p>
+                    <p>Current Academic Year: {{auth()->user()->current_academic_year}}</p>
+                    <p>Relationship to Student: {{auth()->user()->relationship_to_student}}</p>
+                    {{-- <p>Description: {{auth()->user()->description}}</p> --}}
+            
 
                 </div>
             </div>
@@ -39,15 +42,14 @@
                                 @enderror
                             
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Address</label>
                             <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}">
                             
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label>Phone number</label>
-                            <input type="text" name="phone_number" class="form-control" value="{{auth()->user()->phone_number}}">
-                            
+                            <input type="text" name="phone_number" class="form-control" value="{{auth()->user()->phone_number}}">    
                         </div>
                         <div class="form-group">
                             <label>Gender</label>
@@ -61,11 +63,27 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        <div class="form-group">
-                                    <label>Student Details</label>
-                                    <textarea name="description" class="form-control">{{auth()->user()->description}}</textarea>
+                        {{-- <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea name="description" class="form-control" value = {{auth()->user()->description}}> </textarea>
                                     
-                         </div>
+                         </div> --}}
+                        <div class="form-group">
+                                    <label>Student's Name</label>
+                                    <input type= "text" name="student_name" class="form-control" value = {{auth()->user()->student_name}}> 
+                        </div> 
+                        
+                        <div class="form-group">
+                                    <label>Current Academic Year</label>
+                                    <input type= "number" name="current_academic_year" class="form-control" value = {{auth()->user()->current_academic_year}}>      
+                        </div>
+                        <div class="form-group">
+                                    <label>Relationship to Student</label>
+                                    <input type= "text" name="relationship_to_student" class="form-control" value = {{auth()->user()->relationship_to_student}}>      
+                        </div> 
+
+
+
                         <div class="form-group">
                             
                             <button class="btn btn-primary" type="submit">Update</button>

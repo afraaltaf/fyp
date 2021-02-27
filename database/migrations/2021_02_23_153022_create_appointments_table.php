@@ -16,7 +16,6 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('student_details');
             $table->string('date');
             $table->timestamps();
         });

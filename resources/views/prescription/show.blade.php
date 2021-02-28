@@ -14,12 +14,12 @@
                     <p>Date:{{$prescription->date}}</p>
                     <p>Patient:{{$prescription->user->name}}</p>
                     <p>Doctor:{{$prescription->doctor->name}}</p>
-                    <p>Disease:{{$prescription->name_of_disease}}</p>
-                    <p>Symptoms:{{$prescription->symptoms}}</p>
-                    <p>Medicine:{{$prescription->medicine}}</p>
-                    <p>Proedure to use medicine:{{$prescription->procedure_to_use_medicine}}</p>
-                    <p>Feedback:{{$prescription->feedback}}</p>
-                    <p>Doctor signature:{{$prescription->signature}}</p>
+                    <p>Subject:{{$prescription->name_of_subject}}</p>
+                    <p>Behaviour:{{$prescription->behaviour}}</p>
+                    <p>Grade (working at):{{$prescription->current_grade}}</p>
+                    <p>Areas to Improve:{{$prescription->areas_to_improve}}</p>
+                    <p>Tutor Feedback:{{$prescription->feedback}}</p>
+                    <p>Tutor signature:{{$prescription->signature}}</p>
 
                   
                 </div>

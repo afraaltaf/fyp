@@ -25,7 +25,7 @@
                           <th scope="col">Time</th>
                           <th scope="col">Doctor</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Prescription</th>
+                          <th scope="col">Progress</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -72693,7 +72693,7 @@ var render = function() {
       return _c("div", { key: index, staticClass: "form-group" }, [
         _c("input", {
           staticClass: "form-control",
-          attrs: { type: "text", name: "medicine[]" }
+          attrs: { type: "text", name: "areas_to_improve[]" }
         }),
         _vm._v(" "),
         _c("span", [
@@ -72717,7 +72717,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Add More Medicine")]
+            [_vm._v("Add Areas")]
           ),
           _vm._v(" "),
           _c(

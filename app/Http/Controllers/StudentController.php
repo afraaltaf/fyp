@@ -41,3 +41,34 @@ class StudentController extends Controller
 
 }
 
+// <div class="content">
+//     <p>high</p>
+// </div>
+// <div class="content">
+//     <p>low</p>
+// </div>
+// <div class="content">
+//     <p>medium</p>
+// </div>
+// <div class="content">
+//     <p>critical</p>
+// </div>
+// <div class="content">
+//     <p>high</p>
+// </div>
+
+// Jquery
+// var content = $(".content p").text();
+
+//     if (content == "high") {
+
+//         $(this).css("color", "#ffffff");
+//     }
+//    if (content == "low") {
+
+//         $(this).css("color", "#ccc");
+//     }
+//    if (content == "critical") {
+
+//         $(this).css("color", "#000");
+//     }

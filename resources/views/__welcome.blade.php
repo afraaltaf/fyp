@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <!--<img src="<!--/banner/online-medicine-concept_160901-152.jpg" class="img-fluid" style="border:1px solid #ccc;"> -->
+            <!--<img src="/banner/online-medicine-concept_160901-152.jpg" class="img-fluid" style="border:1px solid #ccc;"> -->
             <img src="/downloads/frontpageTutor.png" class="img-fluid" style="border:1px solid #ccc;">
         </div>
         <div class="col-md-6">

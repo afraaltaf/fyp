@@ -15,13 +15,14 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_disease');
-            $table->string('symptoms');
+            $table->string('name_of_subject');
+            $table->string('behaviour');
             $table->integer('user_id');
             $table->integer('doctor_id');
             $table->string('date');
-            $table->text('medicine');
-            $table->text('procedure_to_use_medicine');
+            $table->text('current_grade');
+            $table->text('areas_to_improve');
+           // $table->text('procedure_to_use_medicine');
             $table->text('feedback');
             $table->string('signature');
             

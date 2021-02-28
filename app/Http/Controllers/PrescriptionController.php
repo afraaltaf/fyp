@@ -19,7 +19,7 @@ class PrescriptionController extends Controller
     public function store(Request $request)
     {
     	$data  = $request->all();
-    	$data['medicine'] = implode(',',$request->medicine);
+    	$data['areas_to_improve'] = implode(',',$request->areas_to_improve);
     	Prescription::create($data);
     	return redirect()->back()->with('message','Prescription created');
     }

@@ -15,19 +15,21 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_subject');
-            $table->string('behaviour');
+            $table->string('name_of_subject')->default("");
+            $table->string('behaviour')->default("");;
             $table->integer('user_id');
             $table->integer('doctor_id');
             $table->string('date');
-            $table->text('current_grade');
-            $table->text('areas_to_improve');
+            $table->text('current_grade')->default("");;
+            //$table->text('areas_to_improve');
            // $table->text('procedure_to_use_medicine');
-            $table->text('feedback');
+            $table->text('feedback')->default("");;
             $table->string('signature');
             
 
             $table->timestamps();
+
+            
         });
     }
 
@@ -41,3 +43,4 @@ class CreatePrescriptionsTable extends Migration
         Schema::dropIfExists('prescriptions');
     }
 }
+

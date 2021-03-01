@@ -19,9 +19,15 @@ class PrescriptionController extends Controller
     public function store(Request $request)
     {
     	$data  = $request->all();
-    	$data['areas_to_improve'] = implode(',',$request->areas_to_improve);
+    	//$data['areas_to_improve'] = implode(',',$request->areas_to_improve);
     	Prescription::create($data);
     	return redirect()->back()->with('message','Prescription created');
+
+    //     $data  = $request->all();
+    // 	$data['medicine'] = implode(',',$request->medicine);
+    // 	Prescription::create($data);
+    // 	return redirect()->back()->with('message','Prescription created');
+    
     }
 
     public function show($userId,$date)
@@ -40,3 +46,4 @@ class PrescriptionController extends Controller
 
 
 }
+

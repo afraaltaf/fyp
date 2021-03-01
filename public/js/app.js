@@ -14783,7 +14783,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     add: function add() {
       this.inputs.push({
-        medicine: ''
+        areas_to_improve: ''
       });
     },
     remove: function remove(index) {
@@ -72717,7 +72717,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Add Areas")]
+            [_vm._v("Add more Areas")]
           ),
           _vm._v(" "),
           _c(

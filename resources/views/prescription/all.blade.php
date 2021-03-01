@@ -25,7 +25,7 @@
                           <th scope="col">Time</th>
                           <th scope="col">Doctor</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Progress</th>
+                          <th scope="col">Prescription</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -52,7 +52,7 @@
                               <!-- Button trigger modal -->
               
                    <a href="{{route('prescription.show',[$patient->user_id,$patient->date])}}" class="btn btn-secondary">View prescription</a>
-                  
+          
 
                                
                           </td>

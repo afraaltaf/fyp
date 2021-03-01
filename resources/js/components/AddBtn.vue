@@ -3,7 +3,7 @@
 		<div class="form-group" v-for="(input,index) in inputs" :key="index" >
 			<input type="text" name="areas_to_improve[]" class="form-control">
 			<span>
-				<a href="" @click.prevent="add(index)" v-show="index== inputs.length-1" style="color: green;">Add Areas</a>
+				<a href="" @click.prevent="add(index)" v-show="index== inputs.length-1" style="color: green;">Add more Areas</a>
 
 				<a href="" @click.prevent="remove(index)" v-show="index ||(!index &&inputs.length >1) ">Remove</a>
 			</span>
@@ -22,7 +22,7 @@
 		methods:{
 			add(){
 				this.inputs.push({
-					medicine:''
+				areas_to_improve:''
 				})
 			},
 			remove(index)

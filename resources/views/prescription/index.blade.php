@@ -68,9 +68,11 @@
                     @include('prescription.form')
 
                     @else 
-                   <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">View prescription</a>
+                   <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">View Prescription</a>
                     @endif
 
+
+                         <!-- Button trigger modal -->
                                
                           </td>
                         </tr>

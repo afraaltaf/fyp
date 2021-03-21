@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\Time;
@@ -9,6 +10,7 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Models\Prescription;
 use App\Mail\AppointmentMail;
+
 class FrontendController extends Controller
 {
     
@@ -49,7 +51,7 @@ class FrontendController extends Controller
         if($check){
             return redirect()->back()->with('message','You have already bookedn an appointment.Please wait to make next appointment');
         }
-   
+         
         
         Booking::create([
             'user_id'=> auth()->user()->id,
@@ -82,6 +84,72 @@ class FrontendController extends Controller
 
 
     }
+  
+    public function edit($id)
+    {
+
+        $appointment = Appointment::where('user_id',$doctorId)->where('date',$date)->first();
+        $times = Time::where('appointment_id',$appointment->id)->where('status',0)->get();
+        $user = User::where('id',$doctorId)->first();
+        $doctor_id = $doctorId;
+
+        return view('appointment',compact('times','date','user','doctor_id'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+		
+        date_default_timezone_set('Europe/London');
+        
+        $request->validate(['time'=>'required']);
+        $check=$this->checkBookingTimeInterval();
+        if($check){
+            return redirect()->back()->with('message','You have already booked an appointment.Please wait to make next appointment');
+        }
+   
+        Booking::find($id)([
+            'user_id'=> auth()->user()->id,
+            'doctor_id'=> $request->doctorId,
+            'time'=> $request->time,
+            'date'=> $request->date,
+            'status'=>0
+        ]);
+
+        Time::where('appointment_id',$request->appointmentId)
+            ->where('time',$request->time)
+            ->update(['status'=>1]);
+        //send email notification
+        $doctorName = User::where('id',$request->doctorId)->first();
+        $mailData = [
+            'name'=>auth()->user()->name,
+            'time'=>$request->time,
+            'date'=>$request->date,
+            'doctorName' => $doctorName->name
+
+        ];
+        try{
+           // \Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
+
+        }catch(\Exception $e){
+
+        }
+
+        return redirect()->back()->with('message','Your appointment was successfully amended');
+
+
+    }
+
+    public function destroy($id)
+    {
+        
+       $booking = Booking::find($id);
+       $booking->delete();
+       return redirect('/my-booking');
+
+
+    }
+
 
     public function checkBookingTimeInterval()
     {

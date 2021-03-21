@@ -32,7 +32,7 @@
                         <input type="text" name="date" class="form-control" id="datepicker">
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-primary" type="submit">Find Doctors</button>
+                        <button class="btn btn-primary" type="submit">Find Tutors</button>
 
                     </div>
                     
@@ -47,7 +47,7 @@
     <!--display doctors-->
     <div class="card">
         <div class="card-body">
-            <div class="card-header"> Doctors </div>
+            <div class="card-header"> Tutors </div>
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>

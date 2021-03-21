@@ -28,15 +28,20 @@ Route::get('/','FrontendController@index');
 
 
 Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show')->name('create.appointment');
-
+// Route::get('/new-appointment/{doctorId}/{date}','FrontendController@update')->name('create.appointment');
 
 
 Route::group(['middleware'=>['auth','patient']],function(){
 
 	Route::post('/book/appointment','FrontendController@store')->name('booking.appointment');
-
+    Route::post('/book/appointment','FrontendController@update')->name('booking.appointment');
 	Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
 
+    //Route::post('/my-booking', 'FrontendController@destroy')->name('delete');
+    Route::get('/my-booking/{id}/destroy', 'FrontendController@destroy')->name('destroy');
+	Route::post('my-booking', 'FrontendController@destroy')->name('delete');
+
+	
 	Route::get('/user-profile','ProfileController@index');
 	Route::post('/user-profile','ProfileController@store')->name('profile.store');
 	Route::post('/profile-pic','ProfileController@profilePic')->name('profile.pic');
@@ -65,7 +70,8 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
 Route::group(['middleware'=>['auth','doctor']],function(){
 
-	Route::resource('appointment','AppointmentController');
+	Route::resource('app
+	ointment','AppointmentController');
 	Route::post('/appointment/check','AppointmentController@check')->name('appointment.check');
 	Route::post('/appointment/update','AppointmentController@updateTime')->name('update');
 

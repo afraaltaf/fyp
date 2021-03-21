@@ -17,6 +17,8 @@ b
                           <th scope="col">Date for</th>
                           <th scope="col">Created date</th>
                           <th scope="col">Status</th>
+                          <th scope="col">Reschedule</th>
+                          <th scope="col">Cancel</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -34,8 +36,20 @@ b
                               <button class="btn btn-success"> Checked</button>
                               @endif
                           </td>
+                            <td>
+                            @if(!Auth::guest())
+                              @if(Auth::user()->id == $appointment->user_id)
+                              <a href="/booking/edit" class = "btn btn-default">Edit</a>
+                            @endif
+                            @endif
+                          </td>
+                          <td>
+                            <a type="button" class="btn btn-danger"
+                               href="{{ route('destroy', $appointment->id) }}">Delete</a>
+                          </td>
                         </tr>
                         @empty
+
                         <td>You have no appointments</td>
                         @endforelse
                        

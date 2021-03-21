@@ -23,7 +23,7 @@
 <form action="{{url('/')}}" method="GET">
     <div class="card">
         <div class="card-body">
-            <div class="card-header">Find Doctors</div>
+            <div class="card-header">Find Tutor</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -45,7 +45,7 @@
     <!--display doctors-->
     <div class="card">
         <div class="card-body">
-            <div class="card-header"> Doctors </div>
+            <div class="card-header"> Tutors </div>
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>

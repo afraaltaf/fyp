@@ -13,7 +13,7 @@
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             <div class="mt-5">
-               <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Patient</button></a>
+               <a href="{{url('/register')}}"> <button class="btn btn-success">Register</button></a>
                 <a href="{{url('/login')}}"><button class="btn btn-secondary">Login</button></a>
             </div>
         </div>

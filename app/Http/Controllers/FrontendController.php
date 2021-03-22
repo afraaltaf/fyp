@@ -18,27 +18,27 @@ class FrontendController extends Controller
     {
     	date_default_timezone_set('Europe/London');
         if(request('date')){
-            $doctors = $this->findDoctorsBasedOnDate(request('date'));
-            return view('welcome',compact('doctors'));
+            $tutors = $this->findTutorsBasedOnDate(request('date'));
+            return view('welcome',compact('tutors'));
         }
-        $doctors = Lesson::where('date',date('Y-m-d'))->get();
-    	return view('welcome',compact('doctors'));
+        $tutors = Lesson::where('date',date('Y-m-d'))->get();
+    	return view('welcome',compact('tutors'));
     }
 
-    public function show($doctorId,$date)
+    public function show($tutorId,$date)
     {
-        $lesson = Lesson::where('user_id',$doctorId)->where('date',$date)->first();
+        $lesson = Lesson::where('user_id',$tutorId)->where('date',$date)->first();
         $times = Time::where('lesson_id',$lesson->id)->where('status',0)->get();
-        $user = User::where('id',$doctorId)->first();
-        $doctor_id = $doctorId;
+        $user = User::where('id',$tutorId)->first();
+        $tutor_id = $tutorId;
 
-        return view(lesson,compact('times','date','user','doctor_id'));
+        return view(lesson,compact('times','date','user','tutor_id'));
     }
 
-    public function findDoctorsBasedOnDate($date)
+    public function findTutorsBasedOnDate($date)
     {
-        $doctors = Lesson::where('date',$date)->get();
-        return $doctors;
+        $tutors = Lesson::where('date',$date)->get();
+        return $tutors;
 
     }
 
@@ -55,7 +55,7 @@ class FrontendController extends Controller
         
         Booking::create([
             'user_id'=> auth()->user()->id,
-            'doctor_id'=> $request->doctorId,
+            'tutor_id'=> $request->tutorId,
             'time'=> $request->time,
             'date'=> $request->date,
             'status'=>0
@@ -65,12 +65,12 @@ class FrontendController extends Controller
             ->where('time',$request->time)
             ->update(['status'=>1]);
         //send email notification
-        $doctorName = User::where('id',$request->doctorId)->first();
+        $tutorName = User::where('id',$request->tutorId)->first();
         $mailData = [
             'name'=>auth()->user()->name,
             'time'=>$request->time,
             'date'=>$request->date,
-            'doctorName' => $doctorName->name
+            'tutorName' => $tutorName->name
 
         ];
         try{
@@ -88,12 +88,12 @@ class FrontendController extends Controller
     public function edit($id)
     {
 
-        $lesson = Lesson::where('user_id',$doctorId)->where('date',$date)->first();
+        $lesson = Lesson::where('user_id',$tutorId)->where('date',$date)->first();
         $times = Time::where('lesson_id',$lesson->id)->where('status',0)->get();
-        $user = User::where('id',$doctorId)->first();
-        $doctor_id = $doctorId;
+        $user = User::where('id',$tutorId)->first();
+        $tutor_id = $tutorId;
 
-        return view(lesson,compact('times','date','user','doctor_id'));
+        return view(lesson,compact('times','date','user','tutor_id'));
     }
 
 
@@ -110,7 +110,7 @@ class FrontendController extends Controller
    
         Booking::find($id)([
             'user_id'=> auth()->user()->id,
-            'doctor_id'=> $request->doctorId,
+            'tutor_id'=> $request->tutorId,
             'time'=> $request->time,
             'date'=> $request->date,
             'status'=>0
@@ -120,12 +120,12 @@ class FrontendController extends Controller
             ->where('time',$request->time)
             ->update(['status'=>1]);
         //send email notification
-        $doctorName = User::where('id',$request->doctorId)->first();
+        $tutorName = User::where('id',$request->tutorId)->first();
         $mailData = [
             'name'=>auth()->user()->name,
             'time'=>$request->time,
             'date'=>$request->date,
-            'doctorName' => $doctorName->name
+            'tutorName' => $tutorName->name
 
         ];
         try{
@@ -171,16 +171,16 @@ class FrontendController extends Controller
         return view('my-prescription',compact('prescriptions'));
     }
 
-    public function doctorToday(Request $request)
+    public function tutorToday(Request $request)
     {
-        $doctors = Lesson::with('doctor')->whereDate('date',date('Y-m-d'))->get();
-        return $doctors;
+        $tutors = Lesson::with('tutor')->whereDate('date',date('Y-m-d'))->get();
+        return $tutors;
     }
 
-    public function findDoctors(Request $request)
+    public function findTutors(Request $request)
     {
-        $doctors = Lesson::with('doctor')->whereDate('date',$request->date)->get();
-        return $doctors;
+        $tutors = Lesson::with('tutor')->whereDate('date',$request->date)->get();
+        return $tutors;
     }
 
 

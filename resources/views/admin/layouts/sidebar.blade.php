@@ -37,13 +37,13 @@
                                 <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Tutor</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('doctor.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('doctor.index')}}" class="menu-item">View</a>
+                                        <a href="{{route('tutor.create')}}" class="menu-item">Create</a>
+                                        <a href="{{route('tutor.index')}}" class="menu-item">View</a>
                                        
                                     </div>
                                 </div>
                                 @endif
-                                  @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                  @if(auth()->check()&& auth()->user()->role->name === 'tutor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lesson Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -54,12 +54,12 @@
                                 </div>
                                 @endif
 
-                                @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                @if(auth()->check()&& auth()->user()->role->name === 'tutor')
                                    <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Parents</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('patients.today')}}" class="menu-item">Patients(today)</a>
-                                        <a href="{{route('prescribed.patients')}}" class="menu-item">All Patients(prescription)</a>
+                                        <a href="{{route('parents.today')}}" class="menu-item">Lessons Today</a>
+                                        <a href="{{route('prescribed.parents')}}" class="menu-item">Lesson and Progress History</a>
                                        
                                     </div>
                                 </div>
@@ -70,9 +70,9 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                  <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patient Lesson</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lessons</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('patient')}}" class="menu-item">today Lesson</a>
+                                        <a href="{{route('parent')}}" class="menu-item">Lesson's Today</a>
                                         <a href="{{route('all.lessons')}}" class="menu-item">All Time Lesson</a>
                                        
                                     </div>

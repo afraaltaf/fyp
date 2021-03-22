@@ -56,12 +56,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
     
-                        @if(auth()->check()&& auth()->user()->role->name === 'patient')
+                        @if(auth()->check()&& auth()->user()->role->name === 'parent')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('my.booking') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('Bookings') }}</a>
                             </li>
                         @endif
-                        @if(auth()->check()&& auth()->user()->role->name === 'patient')
+                        @if(auth()->check()&& auth()->user()->role->name === 'parent')
                             <li class="nav-item">
                                 <a style="color: #fff; font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.prescription') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('My Prescriptions') }}</a>
                             </li>
@@ -83,7 +83,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                     @if(auth()->check()&& auth()->user()->role->name === 'patient')
+                                     @if(auth()->check()&& auth()->user()->role->name === 'parent')
                                     <a href="{{url('user-profile')}}"  class="dropdown-item"style="color: #000; font-size:16px; font-weight: bold;">Profile</a>
                                     @else 
                                      <a href="{{url('dashboard')}}"  class="dropdown-item">Dashboard</a>

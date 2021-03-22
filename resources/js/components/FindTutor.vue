@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="card">
-			<div class="card-header">Find Doctors</div>
+			<div class="card-header">Find Tutors</div>
 			<div class="card-body">
 				<datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates"  :format="customDate" v-model="time" :inline=true ></datepicker>
 			</div>
@@ -9,7 +9,7 @@
 
 
 		<div class="card mt-5">
-			<div class="card-header">Doctors</div>
+			<div class="card-header">Tutors</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
@@ -25,18 +25,18 @@
 						<tbody>
 							
 
-							<tr v-for="(d,index) in doctors" v-if="!loading">
+							<tr v-for="(d,index) in tutors" v-if="!loading">
 								<th scope="row">{{index+1}}</th>
 								<td>
-									<img :src="'/images/'+ d.doctor.image" width="80">
+									<img :src="'/images/'+ d.tutor.image" width="80">
 								</td>
-								<td>{{d.doctor.name}}</td>
-								<td>{{d.doctor.department}}</td>
+								<td>{{d.tutor.name}}</td>
+								<td>{{d.tutor.department}}</td>
 								<td>
 									<a :href="'/new-lesson/'+ d.user_id+'/'+d.date "><button class="btn btn-success">Book Lesson</button></a>
 								</td>
 							</tr>
-							<td v-if="doctors.length==0">No doctors available for {{this.time}}</td>
+							<td v-if="tutors.length==0">No tutors available for {{this.time}}</td>
 						</tbody>
 
 				
@@ -61,7 +61,7 @@
 		data(){
 			return{
 				time:'',
-				doctors:[],
+				tutors:[],
 				loading:false,
 				disabledDates:{
 					to:new Date(Date.now() - 86400000)
@@ -81,11 +81,11 @@
 				this.loading =true
 				
 				this.time = moment(date).format('YYYY-MM-DD');
-				axios.post('/api/finddoctors',{date:this.time}).
+				axios.post('/api/findtutors',{date:this.time}).
 				then((response)=>{
 
 					setTimeout(()=>{  
-						this.doctors =response.data
+						this.tutors =response.data
 						this.loading=false
 					},1000)
 					
@@ -97,8 +97,8 @@
 		mounted(){
 			//let time = moment(date).parseZone("Europe/London");
 			this.loading=true
-			axios.get('/api/doctors/today').then((response)=>{
-				this.doctors = response.data
+			axios.get('/api/tutors/today').then((response)=>{
+				this.tutors = response.data
 				this.loading=false
 				
 			})

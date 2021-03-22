@@ -14,7 +14,7 @@
                         <tr>
                           
                           <th scope="col">Date</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Tutor</th>
                           <th scope="col">Subject</th>
                           <th scope="col">Behaviour</th>
                           <th scope="col">Grade(currently working at)</th>
@@ -28,7 +28,7 @@
                         <tr>
                          
                           <td>{{$prescription->date}}</td>
-                          <td>{{$prescription->doctor->name}}</td>
+                          <td>{{$prescriptio->tutor->name}}</td>
                           <td>{{$prescription->name_of_subject}}</td>
                           <td>{{$prescription->behaviour}}</td>
                           <td>{{$prescription->current_grade}}</td>

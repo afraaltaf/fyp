@@ -10,7 +10,7 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Doctors</h5>
+                    <h5>Tutors</h5>
                     <span>lesson time</span>
                     
                 </div>
@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Doctor</a></li>
+                <li class="breadcrumb-item"><a href="#">Tutor</a></li>
                 <li class="breadcrumb-item active" aria-current="page"></li>
             </ol>
         </nav>
@@ -186,7 +186,7 @@
             <tr>
             
               <th scope="row"></th>
-              <td>{{$lesson->doctor->name}}</td>
+              <td>{{$lesson->tutor->name}}</td>
               <td>{{$lesson->date}}</td>
               <td>
                     <form action="{{route('.check')}}" method="post">@csrf

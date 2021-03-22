@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class Patient
+class ParentRec
 {
     /**
      * Handle an incoming request.
@@ -14,9 +14,10 @@ class Patient
      * @param  \Closure  $next
      * @return mixed
      */
+    
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role->name=="patient" ){
+        if(Auth::user()->role->name=="parent" ){
             return $next($request);
         }else{
             return redirect()->back();

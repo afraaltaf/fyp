@@ -9,7 +9,7 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Patients</h6>
+                                                <h6>Parents</h6>
                                                 <h2>{{App\Models\User::where('role_id',3)->count()}}</h2>
                                             </div>
                                             <div class="icon">

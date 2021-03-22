@@ -30,7 +30,7 @@
                           <th scope="col">Relationship to Student</th>
 
                           <th scope="col">Time</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Tutor</th>
                           <th scope="col">Status</th>
                           <th scope="col">Prescription</th>
                         </tr>
@@ -52,7 +52,7 @@
                           <td>{{$booking->user->current_academic_year}}</td>
                           <td>{{$booking->user->relationship_to_student}}</td>
                           <td>{{$booking->time}}</td>
-                          <td>{{$booking->doctor->name}}</td>
+                          <td>{{$booking->tutor->name}}</td>
                           <td>
                             @if($booking->status==1)
                              checked
@@ -61,7 +61,7 @@
                           <td>
                               <!-- Button trigger modal -->
                        
-                @if(!App\Models\Prescription::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
+                @if(!App\Models\Prescription::where('date',date('Y-m-d'))->where('tutor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
                                 Write prescription
                     </button>

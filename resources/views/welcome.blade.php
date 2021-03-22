@@ -21,6 +21,6 @@
     <hr>
 
   <!--date picker component-->
- <find-doctor></find-doctor>
+ <find-tutor></find-tutor>
 </div>
 @endsection

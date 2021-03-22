@@ -13,13 +13,13 @@
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             <div class="mt-5">
-               <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Patient</button></a>
+               <a href="{{url('/register')}}"> <button class="btn btn-success">Register as Parent</button></a>
                 <a href="{{url('/login')}}"><button class="btn btn-secondary">Login</button></a>
             </div>
         </div>
     </div>
     <hr>
-<!--Search doctor-->
+<!--Search tutor-->
 <form action="{{url('/')}}" method="GET">
     <div class="card">
         <div class="card-body">
@@ -30,7 +30,7 @@
                         <input type="text" name="date" class="form-control" id="datepicker">
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-primary" type="submit">Find Doctors</button>
+                        <button class="btn btn-primary" type="submit">Find Tutors</button>
 
                     </div>
                     
@@ -42,7 +42,7 @@
     </div>
 </form>
 
-    <!--display doctors-->
+    <!--display tutors-->
     <div class="card">
         <div class="card-body">
             <div class="card-header"> Tutors </div>
@@ -58,24 +58,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                       @forelse($doctors as $doctor)
+                       @forelse($tutors as $tutor)
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <img src="{{asset('images')}}/{{$doctor->doctor->image}}" width="100px" style="border-radius: 50%;">
+                                <img src="{{asset('images')}}/{{$tutor->tutor->image}}" width="100px" style="border-radius: 50%;">
                             </td>
                             <td>
-                                {{$doctor->doctor->name}}
+                                {{$tutor->tutor->name}}
                             </td>
                             <td>
-                                {{$doctor->doctor->department}}
+                                {{$tutor->tutor->department}}
                             </td>
                             <td>
-                                <a href="{{route('create.lesson',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
+                                <a href="{{route('create.lesson',[$tutor->user_id,$tutor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
                             </td>
                         </tr>
                         @empty
-                        <td>No doctors available today</td>
+                        <td>No tutors available today</td>
                         @endforelse
 
 

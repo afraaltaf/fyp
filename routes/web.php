@@ -27,11 +27,11 @@ use App\Http\Controllers\FullCalendarController;
 Route::get('/','FrontendController@index');
 
 
-Route::get('/new-lesson/{doctorId}/{date}','FrontendController@show')->name('create.lesson');
-// Route::get('/new-lesson/{doctorId}/{date}','FrontendController@update')->name('create.lesson');
+Route::get('/new-lesson/{tutorId}/{date}','FrontendController@show')->name('create.lesson');
+// Route::get('/new-lesson/{tutorId}/{date}','FrontendController@update')->name('create.lesson');
 
 
-Route::group(['middleware'=>['auth','patient']],function(){
+Route::group(['middleware'=>['auth','parent']],function(){
 
 	Route::post('/book/lesson','FrontendController@store')->name('booking.lesson');
     Route::post('/book/lesson','FrontendController@update')->name('booking.lesson');
@@ -59,33 +59,33 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware'=>['auth','admin']],function(){
-	Route::resource('doctor','DoctorController');
-	Route::get('/patients','PatientlistController@index')->name('patient');
-	Route::get('/patients/all','PatientlistController@allTimeLesson')->name('all.lessons');
-	Route::get('/status/update/{id}','PatientlistController@toggleStatus')->name('update.status');
+	Route::resource('tutor','TutorController');
+	Route::get('/parents','ParentRecController@index')->name('parent');
+	Route::get('/parents/all','ParentRecController@allTimeLesson')->name('all.lessons');
+	Route::get('/status/update/{id}','ParentRecController@toggleStatus')->name('update.status');
 	Route::resource('department','DepartmentController');
 
 
 });
 
-Route::group(['middleware'=>['auth','doctor']],function(){
+Route::group(['middleware'=>['auth','tutor']],function(){
 
 	Route::resource('lesson','LessonController');
 	Route::post('/lesson/check','LessonController@check')->name('lesson.check');
 	Route::post('/lesson/update','LessonController@updateTime')->name('update');
 
-	Route::get('patient-today','PrescriptionController@index')->name('patients.today');
+	Route::get('parent-today','PrescriptionController@index')->name('parents.today');
 
 	Route::post('/prescription','PrescriptionController@store')->name('prescription');
 
 	Route::get('/prescription/{userId}/{date}','PrescriptionController@show')->name('prescription.show');
-	Route::get('/prescribed-patients','PrescriptionController@patientsFromPrescription')->name('prescribed.patients');
+	Route::get('/prescribed-parents','PrescriptionController@parentsFromPrescription')->name('prescribed.parents');
 
 
 });
 
-// Route::post('/api/doctors','FrontendController@getDoctors');
-// Route::get('/api/doctors/today','FrontendController@doctorToday');
+// Route::post('/api/tutors','FrontendController@getTutors');
+// Route::get('/api/tutors/today','FrontendController@tutorToday');
 
 
 

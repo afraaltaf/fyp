@@ -12,7 +12,7 @@ b
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Tutor</th>
                           <th scope="col">Time</th>
                           <th scope="col">Date for</th>
                           <th scope="col">Created date</th>
@@ -25,7 +25,7 @@ b
                         @forelse($lessons as $key=>$lesson)
                         <tr>
                           <th scope="row">{{$key+1}}</th>
-                          <td>{{$lesson->doctor->name}}</td>
+                          <td>{{$lesson->tutor->name}}</td>
                           <td>{{$lesson->time}}</td>
                           <td>{{$lesson->date}}</td>
                           <td>{{$lesson->created_at}}</td>

@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Doctors</h5>
-                    <span>Delete doctor</span>
+                    <h5>Tutors</h5>
+                    <span>Delete tutor</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Doctor</a></li>
+                <li class="breadcrumb-item"><a href="#">Tutor</a></li>
                 <li class="breadcrumb-item active" aria-current="page">delete</li>
             </ol>
         </nav>
@@ -40,12 +40,12 @@
 	<div class="card-body">
         <img src="{{asset('images')}}/{{$user->image}}" width="120">
         <h2>{{$user->name}}</h2>
-		<form class="forms-sample" action="{{route('doctor.destroy',[$user->id])}}" method="post" >@csrf
+		<form class="forms-sample" action="{{route('tutor.destroy',[$user->id])}}" method="post" >@csrf
             @method('DELETE')
 			
             <div class="card-footer">
                 <button type="submit" class="btn btn-danger mr-2">Confrim</button>
-                <a href="{{route('doctor.index')}}" class="btn btn-secondary">
+                <a href="{{route('tutor.index')}}" class="btn btn-secondary">
                     Cancel
                   
                 </a>

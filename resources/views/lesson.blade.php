@@ -6,7 +6,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="text-center">Doctor Information</h4>
+                    <h4 class="text-center">Tutor Information</h4>
                     <img  src="{{asset('images')}}/{{$user->image}}" width="100px" style="border-radius: 50%;" >
                     <br>
                    <p class="lead"> Name:{{ucfirst($user->name)}}</p>
@@ -48,7 +48,7 @@
                                     </span>
                             </label>
                         </div>
-                        <input type="hidden" name="doctorId" value="{{$doctor_id}}">
+                        <input type="hidden" name="tutorId" value="{{$tutor_id}}">
                         <input type="hidden" name="lessonId" value
                         ="{{$time->lesson_id}}">
                         <input type="hidden" name="date" value

@@ -13,7 +13,7 @@ class DashboardController extends Controller
     }
     public function index()
     {
-    	if(Auth::user()->role->name=='patient'){
+    	if(Auth::user()->role->name=='parent'){
     		return view('home');
     	}
         

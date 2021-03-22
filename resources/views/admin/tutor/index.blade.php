@@ -8,8 +8,8 @@
         <div class="page-header-title">
             <i class="ik ik-inbox bg-blue"></i>
             <div class="d-inline">
-                <h5>Doctors</h5>
-                <span>List of all Doctors</span>
+                <h5>Tutors</h5>
+                <span>List of all Tutors</span>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">Doctors</a>
+                    <a href="#">Tutors</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Index</li>
             </ol>
@@ -70,9 +70,9 @@
                                 <a href="#" data-toggle="modal" data-target="#exampleModal{{$user->id}}">
                                 <i class="ik ik-eye"></i>
                                 </a>
-                                <a href="{{route('doctor.edit',[$user->id])}}"><i class="ik ik-edit-2"></i></a>
+                                <a href="{{route('tutor.edit',[$user->id])}}"><i class="ik ik-edit-2"></i></a>
                                 
-                                <a href="{{route('doctor.show',[$user->id])}}">
+                                <a href="{{route('tutor.show',[$user->id])}}">
                                     <i class="ik ik-trash-2"></i>
                                 </a>
 
@@ -83,7 +83,7 @@
                     </tr>
            
                     <!-- View Modal -->
-                    @include('admin.doctor.model')
+                    @include('admin.tutor.model')
 
 
 

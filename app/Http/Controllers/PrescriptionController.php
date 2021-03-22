@@ -11,7 +11,7 @@ class PrescriptionController extends Controller
     {
 
     	date_default_timezone_set('Europe/London');
-		$bookings =  Booking::where('date',date('Y-m-d'))->where('status',1)->where('doctor_id',auth()->user()->id)->get();
+		$bookings =  Booking::where('date',date('Y-m-d'))->where('status',1)->where('tutor_id',auth()->user()->id)->get();
 		return view('prescription.index',compact('bookings'));
     }
    
@@ -36,11 +36,11 @@ class PrescriptionController extends Controller
         return view('prescription.show',compact('prescription'));
     }
 
-    //get all patients from prescription table
-    public function patientsFromPrescription()
+    //get all parents from prescription table
+    public function parentsFromPrescription()
     {
-        $patients = Prescription::get();
-        return view('prescription.all',compact('patients'));
+        $parents = Prescription::get();
+        return view('prescription.all',compact('parents'));
     }
 
 

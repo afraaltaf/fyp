@@ -12,8 +12,8 @@
 
                 <div class="card-body">
                     <p>Date:{{$prescription->date}}</p>
-                    <p>Patient:{{$prescription->user->name}}</p>
-                    <p>Doctor:{{$prescription->doctor->name}}</p>
+                    <p>Parent:{{$prescription->user->name}}</p>
+                    <p>Tutor:{{$prescription->tutor->name}}</p>
                     <p>Subject:{{$prescription->name_of_subject}}</p>
                     <p>Behaviour:{{$prescription->behaviour}}</p>
                     <p>Grade (working at):{{$prescription->current_grade}}</p>

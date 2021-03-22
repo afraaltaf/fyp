@@ -7,7 +7,7 @@
              
               <div class="card-header" >
        
-                     Lesson ({{$patients->count()}})
+                     Lesson ({{$parents->count()}})
                  </div>
 
                 <div class="card-body">
@@ -23,35 +23,35 @@
                           <th scope="col">Gender</th>
 
                           <th scope="col">Time</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Tutor</th>
                           <th scope="col">Status</th>
                           <th scope="col">Prescription</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse($patients as $key=>$patient)
+                        @forelse($parents as $key=>$parent)
                         <tr>
                           <th scope="row">{{$key+1}}</th>
-                          <td><img src="/profile/{{$patient->user->image}}" width="80" style="border-radius: 50%;">
+                          <td><img src="/profile/{{$parent->user->image}}" width="80" style="border-radius: 50%;">
                           </td>
                           <td>
                                              
 </td>
-                          <td>{{$patient->user->name}}</td>
-                          <td>{{$patient->user->email}}</td>
-                          <td>{{$patient->user->phone_number}}</td>
-                          <td>{{$patient->user->gender}}</td>
-                          <td>{{$patient->time}}</td>
-                          <td>{{$patient->doctor->name}}</td>
+                          <td>{{$parent->user->name}}</td>
+                          <td>{{$parent->user->email}}</td>
+                          <td>{{$parent->user->phone_number}}</td>
+                          <td>{{$parent->user->gender}}</td>
+                          <td>{{$parent->time}}</td>
+                          <td>{{$parent->tutor->name}}</td>
                           <td>
-                            @if($patient->status==1)
+                            @if($parent->status==1)
                              checked
                              @endif
                           </td>
                           <td>
                               <!-- Button trigger modal -->
               
-                   <a href="{{route('prescription.show',[$patient->user_id,$patient->date])}}" class="btn btn-secondary">View prescription</a>
+                   <a href="{{route('prescription.show',[$parent->user_id,$parent->date])}}" class="btn btn-secondary">View prescription</a>
           
 
                                

@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data){
-        $role = Role::where('name','patient')->first();
+        $role = Role::where('name','parent')->first();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

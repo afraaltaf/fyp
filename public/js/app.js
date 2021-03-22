@@ -72913,12 +72913,12 @@ var render = function() {
                             {
                               attrs: {
                                 href:
-                                  "/new-appointment/" + d.user_id + "/" + d.date
+                                  "/new-lesson/" + d.user_id + "/" + d.date
                               }
                             },
                             [
                               _c("button", { staticClass: "btn btn-success" }, [
-                                _vm._v("Book Appointment")
+                                _vm._v("Book Lesson")
                               ])
                             ]
                           )

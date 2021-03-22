@@ -8,7 +8,7 @@
             <img src="/downloads/frontpageTutor.png" class="img-fluid" style="border:1px solid #ccc;">
         </div>
         <div class="col-md-6">
-            <h2>Create an account & Book your appointment</h2>
+            <h2>Create an account & Book your Lesson</h2>
             <p> ute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
@@ -71,7 +71,7 @@
                                 {{$doctor->doctor->department}}
                             </td>
                             <td>
-                                <a href="{{route('create.appointment',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Appointment</button></a>
+                                <a href="{{route('create.lesson',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
                             </td>
                         </tr>
                         @empty

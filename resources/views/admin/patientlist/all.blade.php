@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header"> 
 
-                     Appointment ({{$bookings->count()}})
+                     Lesson ({{$bookings->count()}})
                  </div>
              
 
@@ -58,7 +58,7 @@
                           </td>
                         </tr>
                         @empty
-                        <td>There is not any appointments !</td>
+                        <td>There are no lessons!</td>
                         @endforelse
                        
                       </tbody>

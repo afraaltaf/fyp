@@ -33,7 +33,7 @@
 								<td>{{d.doctor.name}}</td>
 								<td>{{d.doctor.department}}</td>
 								<td>
-									<a :href="'/new-appointment/'+ d.user_id+'/'+d.date "><button class="btn btn-success">Book Appointment</button></a>
+									<a :href="'/new-lesson/'+ d.user_id+'/'+d.date "><button class="btn btn-success">Book Lesson</button></a>
 								</td>
 							</tr>
 							<td v-if="doctors.length==0">No doctors available for {{this.time}}</td>

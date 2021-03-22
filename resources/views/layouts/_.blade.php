@@ -7,7 +7,7 @@
             <img src="/banner/online-medicine-concept_160901-152.jpg" class="img-fluid" style="border:1px solid #ccc;">
         </div>
         <div class="col-md-6">
-            <h2>Create an account & Book your appointment</h2>
+            <h2>Create an account & Book your lesson</h2>
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -73,7 +73,7 @@
                                 {{$doctor->doctor->department}}
                             </td>
                             <td>
-                                <a href="{{route('create.appointment',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Appointment</button></a>
+                                <a href="{{route('create.lesson',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
                             </td>
                         </tr>
                         @empty

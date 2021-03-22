@@ -26,7 +26,7 @@ class PatientlistController extends Controller
 
     }
 
-    public function allTimeAppointment()
+    public function allTimeLesson()
     {
         $bookings = Booking::latest()->paginate(20);
         return view('admin.patientlist.index',compact('bookings'));

@@ -7,7 +7,7 @@
              
               <div class="card-header" >
        
-                     Appointment ({{$patients->count()}})
+                     Lesson ({{$patients->count()}})
                  </div>
 
                 <div class="card-body">
@@ -58,7 +58,7 @@
                           </td>
                         </tr>
                         @empty
-                        <td>There is not any appointments !</td>
+                        <td>There are no lessons!</td>
                         @endforelse
                        
                       </tbody>

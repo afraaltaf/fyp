@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Appointment;
+use App\Models\Lesson;
 use App\Models\Time;
 use App\Models\Prescription;
-class AppointmentController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $myappointments = Appointment::latest()->where('user_id',auth()->user()->id)->get();
+        $mylessons = Lesson::latest()->where('user_id',auth()->user()->id)->get();
         
-        return view('admin.appointment.index',compact('myappointments'));
+        return view('admin.lesson.index',compact('mylessons'));
 
     }
 
@@ -28,7 +28,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('admin.appointment.create');
+        return view('admin.lesson.create');
     }
 
     /**
@@ -40,25 +40,25 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'date'=>'required|unique:appointments,date,NULL,id,user_id,'.\Auth::id(),
+            'date'=>'required|unique:lessons,date,NULL,id,user_id,'.\Auth::id(),
             'time'=>'required',
             
     
         ]);
-        $appointment = Appointment::create([
+        $lesson = Lesson::create([
             'user_id'=> auth()->user()->id,
             'date' => $request->date,
             
         ]);
         foreach($request->time as $time){
             Time::create([
-                'appointment_id'=> $appointment->id,
+                'lesson_id'=> $lesson->id,
                 'time'=> $time,
                 
                 //'stauts'=>0
             ]);
         }
-        return redirect()->back()->with('message','Appointment created for'. $request->date);
+        return redirect()->back()->with('message','Lesson created for'. $request->date);
        
     }
 
@@ -111,28 +111,28 @@ class AppointmentController extends Controller
     public function check(Request $request){
 
         $date = $request->date;
-        $appointment= Appointment::where('date',$date)->where('user_id',auth()->user()->id)->first();
-        if(!$appointment){
-            return redirect()->to('/appointment')->with('errmessage','Appointment time not available for this date');
+        $lesson= Lesson::where('date',$date)->where('user_id',auth()->user()->id)->first();
+        if(!$lesson){
+            return redirect()->to('/lesson')->with('errmessage','Lesson time not available for this date');
         }
-        $appointmentId = $appointment->id;
-        $times = Time::where('appointment_id',$appointmentId)->get();
+        $lessonId = $lesson->id;
+        $times = Time::where('lesson_id',$lessonId)->get();
 
        
-        return view('admin.appointment.index',compact('times','appointmentId','date'));
+        return view('admin.lesson.index',compact('times','lessonId','date'));
     }
 
     public function updateTime(Request $request){
-        $appointmentId = $request->appoinmentId;
-        $appointment = Time::where('appointment_id',$appointmentId)->delete();
+        $lessonId = $request->lessonId;
+        $lesson = Time::where('lesson_id',$lessonId)->delete();
         foreach($request->time as $time){
             Time::create([
-                'appointment_id'=>$appointmentId,
+                'lesson_id'=>$lessonId,
                 'time'=>$time,
                 'status'=>0
             ]);
         }
-        return redirect()->route('appointment.index')->with('message','Appointment time updated!!');
+        return redirect()->route('lesson.index')->with('message','Lesson time updated.');
     }
 
 

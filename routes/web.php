@@ -27,14 +27,14 @@ use App\Http\Controllers\FullCalendarController;
 Route::get('/','FrontendController@index');
 
 
-Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show')->name('create.appointment');
-// Route::get('/new-appointment/{doctorId}/{date}','FrontendController@update')->name('create.appointment');
+Route::get('/new-lesson/{doctorId}/{date}','FrontendController@show')->name('create.lesson');
+// Route::get('/new-lesson/{doctorId}/{date}','FrontendController@update')->name('create.lesson');
 
 
 Route::group(['middleware'=>['auth','patient']],function(){
 
-	Route::post('/book/appointment','FrontendController@store')->name('booking.appointment');
-    Route::post('/book/appointment','FrontendController@update')->name('booking.appointment');
+	Route::post('/book/lesson','FrontendController@store')->name('booking.lesson');
+    Route::post('/book/lesson','FrontendController@update')->name('booking.lesson');
 	Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
 
     //Route::post('/my-booking', 'FrontendController@destroy')->name('delete');
@@ -61,7 +61,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth','admin']],function(){
 	Route::resource('doctor','DoctorController');
 	Route::get('/patients','PatientlistController@index')->name('patient');
-	Route::get('/patients/all','PatientlistController@allTimeAppointment')->name('all.appointments');
+	Route::get('/patients/all','PatientlistController@allTimeLesson')->name('all.lessons');
 	Route::get('/status/update/{id}','PatientlistController@toggleStatus')->name('update.status');
 	Route::resource('department','DepartmentController');
 
@@ -70,10 +70,9 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
 Route::group(['middleware'=>['auth','doctor']],function(){
 
-	Route::resource('app
-	ointment','AppointmentController');
-	Route::post('/appointment/check','AppointmentController@check')->name('appointment.check');
-	Route::post('/appointment/update','AppointmentController@updateTime')->name('update');
+	Route::resource('lesson','LessonController');
+	Route::post('/lesson/check','LessonController@check')->name('lesson.check');
+	Route::post('/lesson/update','LessonController@updateTime')->name('update');
 
 	Route::get('patient-today','PrescriptionController@index')->name('patients.today');
 

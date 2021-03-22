@@ -11,7 +11,7 @@
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
                     <h5>Doctors</h5>
-                    <span>appoinment time</span>
+                    <span>Lesson time</span>
                     
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Doctor</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+                <li class="breadcrumb-item active" aria-current="page">Lesson</li>
             </ol>
         </nav>
     </div>
@@ -45,7 +45,7 @@
         @endforeach
     
         
-    <form action="{{route('appointment.store')}}" method="post">@csrf
+    <form action="{{route('lesson.store')}}" method="post">@csrf
  
     <div class="card">
         <div class="card-header">

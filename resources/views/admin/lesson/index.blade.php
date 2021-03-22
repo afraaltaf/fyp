@@ -11,7 +11,7 @@
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
                     <h5>Doctors</h5>
-                    <span>appoinment time</span>
+                    <span>lesson time</span>
                     
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Doctor</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+                <li class="breadcrumb-item active" aria-current="page"></li>
             </ol>
         </nav>
     </div>
@@ -50,7 +50,7 @@
         @endforeach
     
         
-    <form action="{{route('appointment.check')}}" method="post">@csrf
+    <form action="{{route('.check')}}" method="post">@csrf
  
     <div class="card">
         <div class="card-header">
@@ -70,7 +70,7 @@
         </div>
     </div>
   </form>
-@if(Route::is('appointment.check'))
+@if(Route::is('.check'))
    <form action="{{route('update')}}" method="post">@csrf
     <div class="card">
         <div class="card-header">
@@ -169,7 +169,7 @@
 </form>
 
 @else 
-<h3>Your appoinment time list: {{$myappointments->count()}}</h3>
+<h3>Your lesson time list: {{$mys->count()}}</h3>
 
         <table class="table table-striped">
           <thead>
@@ -182,15 +182,15 @@
           </thead>
           <tbody>
 
-            @foreach($myappointments as $appoinment)
+            @foreach($mys as $lesson)
             <tr>
             
               <th scope="row"></th>
-              <td>{{$appoinment->doctor->name}}</td>
-              <td>{{$appoinment->date}}</td>
+              <td>{{$lesson->doctor->name}}</td>
+              <td>{{$lesson->date}}</td>
               <td>
-                    <form action="{{route('appointment.check')}}" method="post">@csrf
-                        <input type="hidden" name="date" value="{{$appoinment->date}}">
+                    <form action="{{route('.check')}}" method="post">@csrf
+                        <input type="hidden" name="date" value="{{$lesson->date}}">
                     <button type="submit" class="btn btn-primary">View/Update</button>
 
 

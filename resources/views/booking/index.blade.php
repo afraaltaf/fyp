@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Your appointments({{$appointments->count()}})</div>
+                <div class="card-header">Your lessons({{$lessons->count()}})</div>
 b
                 <div class="card-body">
                     <table class="table table-striped">
@@ -22,15 +22,15 @@ b
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse($appointments as $key=>$appointment)
+                        @forelse($lessons as $key=>$lesson)
                         <tr>
                           <th scope="row">{{$key+1}}</th>
-                          <td>{{$appointment->doctor->name}}</td>
-                          <td>{{$appointment->time}}</td>
-                          <td>{{$appointment->date}}</td>
-                          <td>{{$appointment->created_at}}</td>
+                          <td>{{$lesson->doctor->name}}</td>
+                          <td>{{$lesson->time}}</td>
+                          <td>{{$lesson->date}}</td>
+                          <td>{{$lesson->created_at}}</td>
                           <td>
-                              @if($appointment->status==0)
+                              @if($lesson->status==0)
                               <button class="btn btn-primary">Not visited</button>
                               @else 
                               <button class="btn btn-success"> Checked</button>
@@ -38,19 +38,19 @@ b
                           </td>
                             <td>
                             @if(!Auth::guest())
-                              @if(Auth::user()->id == $appointment->user_id)
+                              @if(Auth::user()->id == $lesson->user_id)
                               <a href="/booking/edit" class = "btn btn-default">Edit</a>
                             @endif
                             @endif
                           </td>
                           <td>
                             <a type="button" class="btn btn-danger"
-                               href="{{ route('destroy', $appointment->id) }}">Delete</a>
+                               href="{{ route('destroy', $lesson->id) }}">Delete</a>
                           </td>
                         </tr>
                         @empty
 
-                        <td>You have no appointments</td>
+                        <td>You have no lessons</td>
                         @endforelse
                        
                       </tbody>

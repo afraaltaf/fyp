@@ -35,7 +35,7 @@
             @endif
             
            
-            <form action="{{route('booking.appointment')}}" method="post">@csrf
+            <form action="{{route('booking.lesson')}}" method="post">@csrf
             <div class="card">
                 <div class="card-header lead">{{$date}}</div>
                 <div class="card-body">
@@ -49,8 +49,8 @@
                             </label>
                         </div>
                         <input type="hidden" name="doctorId" value="{{$doctor_id}}">
-                        <input type="hidden" name="appointmentId" value
-                        ="{{$time->appointment_id}}">
+                        <input type="hidden" name="lessonId" value
+                        ="{{$time->lesson_id}}">
                         <input type="hidden" name="date" value
                         ="{{$date}}">
 
@@ -64,9 +64,9 @@
                </div>
                <div class="card-footer">
                 @if(Auth::check())
-                <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                <button type="submit" class="btn btn-success" style="width: 100%;">Book Lesson</button>
                 @else 
-                    <p>Please login to make an appointment</p>
+                    <p>Please login to book a lesson</p>
                     <a href="/register">Register</a>
                     <a href="/login">Login</a>
                 @endif

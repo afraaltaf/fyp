@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header"> 
 
-                     Appointment ({{$bookings->count()}})
+                     Lesson ({{$bookings->count()}})
                  </div>
                 <form action="{{route('patient')}}" method="GET">
 
@@ -72,7 +72,7 @@
                           </td>
                         </tr>
                         @empty
-                        <td>There are no appointments !</td>
+                        <td>There are no lessons</td>
                         @endforelse
                        
                       </tbody>

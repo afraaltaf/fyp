@@ -45,10 +45,10 @@
                                 @endif
                                   @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Time</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lesson Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('appointment.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('appointment.index')}}" class="menu-item">Check</a>
+                                        <a href="{{route('lesson.create')}}" class="menu-item">Create</a>
+                                        <a href="{{route('lesson.index')}}" class="menu-item">Check</a>
                                        
                                     </div>
                                 </div>
@@ -70,10 +70,10 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                  <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patient Appointment</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patient Lesson</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('patient')}}" class="menu-item">Today Appointment</a>
-                                        <a href="{{route('all.appointments')}}" class="menu-item">All Time Appointment</a>
+                                        <a href="{{route('patient')}}" class="menu-item">today Lesson</a>
+                                        <a href="{{route('all.lessons')}}" class="menu-item">All Time Lesson</a>
                                        
                                     </div>
                                 </div>

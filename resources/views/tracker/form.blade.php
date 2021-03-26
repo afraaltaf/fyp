@@ -2,10 +2,10 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal{{$booking->user_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <form action="{{route('prescription')}}" method="post">@csrf
+    <form action="{{route('tracker')}}" method="post">@csrf
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Prescription</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Progress Tracker</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,7 +13,7 @@
       <div class="modal-body" id="app">
 
         <input type="hidden" name="user_id" value="{{$booking->user_id}}">
-        <input type="hidden" name="tutor_id" value="{{$booking->tutor_id}}">
+        <input type="hidden" name="doctor_id" value="{{$booking->doctor_id}}">
         <input type="hidden" name="date" value="{{$booking->date}}">
         
         <div class="form-group">

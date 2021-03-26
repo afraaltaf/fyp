@@ -56,7 +56,7 @@ class EventController extends Controller
     {
 		
 		$this->validate($request, [
-			'tutorName'	=> 'required',
+			'doctorName'	=> 'required',
 			'subject' => 'required',
 			'date'  => 'required',
             
@@ -66,7 +66,7 @@ class EventController extends Controller
 		//Create Event Record;
 		
 		$event 					= new Event;
-		$event->tutorName		= $request->input('tutorName');
+		$event->doctorName		= $request->input('doctorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
         $event->user_id         = auth()->user()->id;
@@ -118,7 +118,7 @@ class EventController extends Controller
     {
 		
         $this->validate($request, [
-			'tutorName'	=> 'required',
+			'doctorName'	=> 'required',
 			'subject' => 'required',
 			'date'  => 'required',
 			
@@ -127,7 +127,7 @@ class EventController extends Controller
 		//Create Event Record;
 		
 		$event = Event::find($id);
-		$event->tutorName		= $request->input('tutorName');
+		$event->doctorName		= $request->input('doctorName');
 		$event->subject			= $request->input('subject');
 		$event->date			= $request->input('date');
 		$event->child_id        = $request->child()->id;

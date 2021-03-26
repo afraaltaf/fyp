@@ -8,8 +8,8 @@
         <div class="page-header-title">
             <i class="ik ik-inbox bg-blue"></i>
             <div class="d-inline">
-                <h5>Tutors</h5>
-                <span>List of all Tutors</span>
+                <h5>Subjects</h5>
+                <span>Suject List:</span>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">Tutors</a>
+                    <a href="#">Subject</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Index</li>
             </ol>
@@ -45,36 +45,31 @@
             <table id="data_table" class="table">
                 <thead>
                     <tr>
+                        <th>SN</th>
                         <th>Name</th>
-                        <th class="nosort">Avatar</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Phone number</th>
-                        <th>Department</th>
+                        
                         <th class="nosort">&nbsp;</th>
                         <th class="nosort">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if(count($users)>0)
-                    @foreach($users as $user)
+                    @if(count($subjects)>0)
+                    @foreach($subjects as $key=> $subject)
                     <tr>
-                        <td>{{$user->name}}</td>
-                        <td><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt=""></td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->address}}</td>
-                        <td>{{$user->phone_number}}</td>
-                        <td>{{$user->department}}</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$subject->subjects}}</td>
+                        
                         <td>
                             <div class="table-actions">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal{{$user->id}}">
-                                <i class="ik ik-eye"></i>
-                                </a>
-                                <a href="{{route('tutor.edit',[$user->id])}}"><i class="ik ik-edit-2"></i></a>
                                 
-                                <a href="{{route('tutor.show',[$user->id])}}">
-                                    <i class="ik ik-trash-2"></i>
-                                </a>
+                                <a href="{{route('subject.edit',[$subject->id])}}"><i class="ik ik-edit-2"></i></a>
+                                
+                                
+                                <form action="{{route('subject.destroy',[$subject->id])}}" method="post">@csrf
+                                    @method('DELETE')
+                                    <button type="submit"><i class="ik ik-trash-2"></i></button>
+                                    
+                                </form>
 
                             </div>
                         </td>
@@ -82,15 +77,14 @@
 
                     </tr>
            
-                    <!-- View Modal -->
-                    @include('admin.tutor.model')
+                  
 
 
 
                     @endforeach
                    
                     @else 
-                    <td>No user to display</td>
+                    <td>No Subjects</td>
                     @endif
                 
                 </tbody>

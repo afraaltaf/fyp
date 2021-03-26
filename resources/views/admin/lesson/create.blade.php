@@ -10,7 +10,7 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Tutors</h5>
+                    <h5>Doctors</h5>
                     <span>Lesson time</span>
                     
                 </div>
@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Tutor</a></li>
+                <li class="breadcrumb-item"><a href="#">Doctor</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Lesson</li>
             </ol>
         </nav>

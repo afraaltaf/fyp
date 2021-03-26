@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Department</h5>
-                    <span>Update department</span>
+                    <h5>Subject</h5>
+                    <span>Update Subject</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Department</a></li>
+                <li class="breadcrumb-item"><a href="#">Subject</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Update</li>
             </ol>
         </nav>
@@ -32,17 +32,17 @@
      
        
 	<div class="card">
-	<div class="card-header"><h3>Add Department</h3></div>
+	<div class="card-header"><h3>Add Subject</h3></div>
 	<div class="card-body">
-		<form class="forms-sample" action="{{route('department.update',[$department->id])}}" method="post" >@csrf
+		<form class="forms-sample" action="{{route('subject.update',[$subject->id])}}" method="post" >@csrf
             @method('PUT')
 			<div class="row">
 				<div class="col-lg-6">
                     <div class="form-group">
 
-					<label for="">Department name</label>
-					<input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="department name" value="{{$department->department}}">
-                    @error('department')
+					<label for="">Subject</label>
+					<input type="text" name="subject" class="form-control @error('subject') is-invalid @enderror" placeholder="subject" value="{{$subject->subject}}">
+                    @error('subject')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

@@ -9,7 +9,7 @@ class Lesson extends Model
 {
 	protected $guarded = [];
 
-	public function tutor(){
+	public function doctor(){
 		return $this->belongsTo(User::class,'user_id','id');
 	}
 	public function times(){

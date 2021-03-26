@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Department;
-class DepartmentController extends Controller
+use App\Models\Subject;
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::get();
-        return view('admin.department.index',compact('departments'));
+        $subjects = Subject::get();
+        return view('admin.subject.index',compact('subjects'));
     }
 
     /**
@@ -24,7 +24,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.department.create');
+        return view('admin.subject.create');
     }
 
     /**
@@ -36,10 +36,10 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'department'=>'required'
+            'subject'=>'required'
         ]);
-        Department::create($request->all());
-        return redirect()->back()->with('message','Department created');
+        Subject::create($request->all());
+        return redirect()->back()->with('message','Subject Added');
     }
 
     /**
@@ -61,8 +61,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $department = Department::find($id);
-        return view('admin.department.edit',compact('department'));
+        $subject = Subject::find($id);
+        return view('admin.subject.edit',compact('subject'));
     }
 
     /**
@@ -75,12 +75,12 @@ class DepartmentController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'department'=>'required'
+            'subject'=>'required'
         ]);
-        $department = Department::find($id);
-        $department->department = $request->department;
-        $department->save();
-        return redirect()->route('department.index')->with('message','Department updated');
+        $subject = Subject::find($id);
+        $subject->subject = $request->subject;
+        $subject->save();
+        return redirect()->route('subject.index')->with('message','Subject Amended');
     }
 
     /**
@@ -91,8 +91,8 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = Department::find($id);
-        $department->delete();
-        return redirect()->route('department.index')->with('message','Department deleted');
+        $subject = Subject::find($id);
+        $subject->delete();
+        return redirect()->route('subject.index')->with('message','Subject Deleted');
     }
 }

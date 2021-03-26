@@ -7,7 +7,7 @@
      @if(count($events) > 0)
        @foreach ($events as $event)
          <div class = "well">
-           <h3><a href= "/events/{{$event->id}}">{{$event->tutorName}}</a></h3>
+           <h3><a href= "/events/{{$event->id}}">{{$event->doctorName}}</a></h3>
           
          </div>
        @endforeach

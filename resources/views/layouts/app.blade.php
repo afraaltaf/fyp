@@ -63,7 +63,7 @@
                         @endif
                         @if(auth()->check()&& auth()->user()->role->name === 'parent')
                             <li class="nav-item">
-                                <a style="color: #fff; font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.prescription') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('My Prescriptions') }}</a>
+                                <a style="color: #fff; font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.tracker') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('Progress Tracker') }}</a>
                             </li>
                         @endif
                         <!-- Authentication Links -->

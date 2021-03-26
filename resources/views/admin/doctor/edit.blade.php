@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Tutors</h5>
-                    <span>Update tutor</span>
+                    <h5>Doctors</h5>
+                    <span>Update Doctor</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Tutor</a></li>
+                <li class="breadcrumb-item"><a href="#">Doctor</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Update</li>
             </ol>
         </nav>
@@ -36,14 +36,14 @@
         @endif
        
 	<div class="card">
-	<div class="card-header"><h3>Add tutor</h3></div>
+	<div class="card-header"><h3>Add Doctor</h3></div>
 	<div class="card-body">
-		<form class="forms-sample" action="{{route('tutor.update',[$user->id])}}" method="post" enctype="multipart/form-data" >@csrf
+		<form class="forms-sample" action="{{route('doctor.update',[$user->id])}}" method="post" enctype="multipart/form-data" >@csrf
             @method('PUT')
 			<div class="row">
 				<div class="col-lg-6">
 					<label for="">Full name</label>
-					<input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="tutor name" value="                   {{$user->name}}">
+					<input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="doctor name" value="                   {{$user->name}}">
                     @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<label for="">Password</label>
-					<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="tutor password">
+					<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="doctor password">
                      @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<label for="">Education</label>
-						<input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="tutor highest degree" value="                   {{$user->education}}">
+						<input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="doctor highest degree" value="                   {{$user->education}}">
                          @error('education')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -98,7 +98,7 @@
 					</div>
 					<div class="col-lg-6">
 						<label for="">Address</label>
-						<input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="tutor address"  value="{{$user->address}}">
+						<input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="doctor address"  value="{{$user->address}}">
                          @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -111,15 +111,15 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Specialist</label>
-                        <select name="department" class="form-control">
+                        <select name="subject" class="form-control">
                           
 
                        
 
 
 
-                            @foreach(App\Models\Department::all() as $department)
-                            <option value="{{$department->department}}" @if($user->department==$department->department)selected @endif>{{$department->department}}</option> 
+                            @foreach(App\Models\Subject::all() as $subject)
+                            <option value="{{$subject->subject}}" @if($user->subject==$subject->subject)selected @endif>{{$subject->subject}}</option> 
                             @endforeach
 
 
@@ -129,7 +129,7 @@
 
 
 
-                         @error('department')
+                         @error('subject')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

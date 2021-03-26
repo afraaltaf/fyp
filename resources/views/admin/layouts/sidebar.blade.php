@@ -24,10 +24,10 @@
 
                                 @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Department</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Subject</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('department.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('department.index')}}" class="menu-item">View</a>
+                                        <a href="{{route('subject.create')}}" class="menu-item">Create</a>
+                                        <a href="{{route('subject.index')}}" class="menu-item">View</a>
                                        
                                     </div>
                                 </div>
@@ -35,15 +35,15 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Tutor</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Doctor</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('tutor.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('tutor.index')}}" class="menu-item">View</a>
+                                        <a href="{{route('doctor.create')}}" class="menu-item">Create</a>
+                                        <a href="{{route('doctor.index')}}" class="menu-item">View</a>
                                        
                                     </div>
                                 </div>
                                 @endif
-                                  @if(auth()->check()&& auth()->user()->role->name === 'tutor')
+                                  @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lesson Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -54,12 +54,12 @@
                                 </div>
                                 @endif
 
-                                @if(auth()->check()&& auth()->user()->role->name === 'tutor')
+                                @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Parents</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
                                         <a href="{{route('parents.today')}}" class="menu-item">Lessons Today</a>
-                                        <a href="{{route('prescribed.parents')}}" class="menu-item">Lesson and Progress History</a>
+                                        <a href="{{route('tracked.parents')}}" class="menu-item">Lesson and Progress History</a>
                                        
                                     </div>
                                 </div>

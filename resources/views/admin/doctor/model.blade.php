@@ -2,7 +2,7 @@
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tutor information</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Doctor information</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -15,7 +15,7 @@
                     <p>Email:{{$user->email}}</p>
                     <p>Address:{{$user->address}}</p>
                     <p>Phone number:{{$user->phone_number}}</p>
-                    <p>Department:{{$user->department}}</p>
+                    <p>Subject:{{$user->subject}}</p>
                     <p>Education:{{$user->education}}</p>
                     <p>About:{{$user->description}}</p>
                   </div>

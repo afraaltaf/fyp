@@ -43,7 +43,7 @@
                           <th scope="col">Relationship to Student</th>
 
                           <th scope="col">Time</th>
-                          <th scope="col">Tutor</th>
+                          <th scope="col">Doctor</th>
                           <th scope="col">Status</th>
                         </tr>
                       </thead>
@@ -62,7 +62,7 @@
                           <td>{{$booking->user->current_academic_year}}</td>
                           <td>{{$booking->user->relationship_to_student}}</td>
                           <td>{{$booking->time}}</td>
-                          <td>{{$booking->tutor->name}}</td>
+                          <td>{{$booking->doctor->name}}</td>
                           <td>
                               @if($booking->status==0)
                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> Pending</button></a>

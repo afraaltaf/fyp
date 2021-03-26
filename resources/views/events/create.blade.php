@@ -5,8 +5,8 @@
         <h1>Make a booking</h1>
             {!! Form::open(['action' => '\App\Http\Controllers\EventController@store', 'method' => 'POST']) !!}
             <div class = "form-group">
-                {{Form::label('tutorName', 'Tutor') }}
-                <select name="tutorName" >
+                {{Form::label('doctorName', 'Doctor') }}
+                <select name="doctorName" >
                     <option value="Miss A">Miss A</option>
                     <option value="Mr B">Mr B</option>
                     <option value="Mr C">Mr C</option>

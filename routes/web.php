@@ -27,7 +27,7 @@ use App\Http\Controllers\FullCalendarController;
 Route::get('/','FrontendController@index');
 
 
-Route::get('/new-lesson/{tutorId}/{date}','FrontendController@show')->name('create.lesson');
+Route::get('/new-lesson/{doctorId}/{date}','FrontendController@show')->name('create.lesson');
 // Route::get('/new-lesson/{tutorId}/{date}','FrontendController@update')->name('create.lesson');
 
 
@@ -45,7 +45,7 @@ Route::group(['middleware'=>['auth','parent']],function(){
 	Route::get('/user-profile','ProfileController@index');
 	Route::post('/user-profile','ProfileController@store')->name('profile.store');
 	Route::post('/profile-pic','ProfileController@profilePic')->name('profile.pic');
-	Route::get('/my-prescription','FrontendController@myPrescription')->name('my.prescription');
+	Route::get('/my-tracker','FrontendController@myTracker')->name('my.tracker');
 
 
 });
@@ -59,27 +59,27 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware'=>['auth','admin']],function(){
-	Route::resource('tutor','TutorController');
+	Route::resource('doctor','DoctorController');
 	Route::get('/parents','ParentRecController@index')->name('parent');
 	Route::get('/parents/all','ParentRecController@allTimeLesson')->name('all.lessons');
 	Route::get('/status/update/{id}','ParentRecController@toggleStatus')->name('update.status');
-	Route::resource('department','DepartmentController');
+	Route::resource('subject','SubjectController');
 
 
 });
 
-Route::group(['middleware'=>['auth','tutor']],function(){
+Route::group(['middleware'=>['auth','doctor']],function(){
 
 	Route::resource('lesson','LessonController');
 	Route::post('/lesson/check','LessonController@check')->name('lesson.check');
 	Route::post('/lesson/update','LessonController@updateTime')->name('update');
 
-	Route::get('parent-today','PrescriptionController@index')->name('parents.today');
+	Route::get('parent-today','TrackerController@index')->name('parents.today');
 
-	Route::post('/prescription','PrescriptionController@store')->name('prescription');
+	Route::post('/tracker','TrackerController@store')->name('tracker');
 
-	Route::get('/prescription/{userId}/{date}','PrescriptionController@show')->name('prescription.show');
-	Route::get('/prescribed-parents','PrescriptionController@parentsFromPrescription')->name('prescribed.parents');
+	Route::get('/tracker/{userId}/{date}','TrackerController@show')->name('tracker.show');
+	Route::get('/tracked-parents','TrackerController@parentsFromTracker')->name('tracked.parents');
 
 
 });
@@ -111,10 +111,10 @@ Route::group(['middleware'=>['auth','tutor']],function(){
 
 
 
-//Auth::routes(['verify' => true]);
-//Route::get('profile', function () {
-//return 'Verify test';
-//})->middleware('verified'); 
+Auth::routes(['verify' => true]);
+Route::get('profile', function () 
+{return 'Verify test';
+})->middleware('verified'); 
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrescriptionsTable extends Migration
+class CreateTrackersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePrescriptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prescriptions', function (Blueprint $table) {
+        Schema::create('trackers', function (Blueprint $table) {
             $table->id();
             $table->string('name_of_subject')->default("");
             $table->string('behaviour')->default("");;
             $table->integer('user_id');
-            $table->integer('tutor_id');
+            $table->integer('doctor_id');
             $table->string('date');
             $table->text('current_grade')->default("");;
             //$table->text('areas_to_improve');
@@ -40,7 +40,7 @@ class CreatePrescriptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prescriptions');
+        Schema::dropIfExists('trackers');
     }
 }
 

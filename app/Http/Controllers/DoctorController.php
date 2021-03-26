@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-class TutorController extends Controller
+class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TutorController extends Controller
     {
     
         $users  = User::where('role_id','!=',3)->get();
-        return view('admin.tutor.index',compact('users'));
+        return view('admin.doctor.index',compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class TutorController extends Controller
      */
     public function create()
     {
-        return view('admin.tutor.create');
+        return view('admin.doctor.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class TutorController extends Controller
         $data['password'] = bcrypt($request->password);
         User::create($data);
 
-        return redirect()->back()->with('message','Tutor added successfully');
+        return redirect()->back()->with('message','doctor added successfully');
 
 
         
@@ -59,7 +59,7 @@ class TutorController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.tutor.delete',compact('user'));
+        return view('admin.doctor.delete',compact('user'));
     }
 
     /**
@@ -71,7 +71,7 @@ class TutorController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.tutor.edit',compact('user'));
+        return view('admin.doctor.edit',compact('user'));
     }
 
     /**
@@ -99,7 +99,7 @@ class TutorController extends Controller
             $data['password'] = $userPassword;
         }
          $user->update($data);
-        return redirect()->route('tutor.index')->with('message','Tutor updated successfully');
+        return redirect()->route('doctor.index')->with('message','Doctor updated successfully');
 
     }
 
@@ -119,7 +119,7 @@ class TutorController extends Controller
        if($userDelete){
         unlink(public_path('images/'.$user->image));
        }
-        return redirect()->route('tutor.index')->with('message','Tutor deleted successfully');
+        return redirect()->route('doctor.index')->with('message','doctor deleted successfully');
 
     }
 
@@ -131,7 +131,7 @@ class TutorController extends Controller
             'gender'=>'required',
             'education'=>'required',
             'address'=>'required',
-            'department'=>'required',
+            'subject'=>'required',
             'phone_number'=>'required|numeric',
             'image'=>'required|mimes:jpeg,jpg,png',
             'role_id'=>'required',
@@ -147,7 +147,7 @@ class TutorController extends Controller
             'gender'=>'required',
             'education'=>'required',
             'address'=>'required',
-            'department'=>'required',
+            'subject'=>'required',
             'phone_number'=>'required|numeric',
             'image'=>'mimes:jpeg,jpg,png',
             'role_id'=>'required',

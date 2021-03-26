@@ -14,27 +14,27 @@
                         <tr>
                           
                           <th scope="col">Date</th>
-                          <th scope="col">Tutor</th>
+                          <th scope="col">Doctor</th>
                           <th scope="col">Subject</th>
                           <th scope="col">Behaviour</th>
                           <th scope="col">Grade(currently working at)</th>
                           {{-- <th scope="col">Areas to Improve</th> --}}
                           {{-- <th scope="col">procedure to use medicine</th> --}}
-                          <th scope="col">Tutor Feedback</th>
+                          <th scope="col">Doctor Feedback</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse($prescriptions as $prescription)
+                        @forelse($trackers as $tracker)
                         <tr>
                          
-                          <td>{{$prescription->date}}</td>
-                          <td>{{$prescriptio->tutor->name}}</td>
-                          <td>{{$prescription->name_of_subject}}</td>
-                          <td>{{$prescription->behaviour}}</td>
-                          <td>{{$prescription->current_grade}}</td>
-                        {{-- <td>{{$prescription->areas_to_improve}}</td>  --}}
-                          {{-- <td>{{$prescription->procedure_to_use_medicine}}</td> --}}
-                          <td>{{$prescription->feedback}}</td>
+                          <td>{{$tracker->date}}</td>
+                          <td>{{$tracker->doctor->name}}</td>
+                          <td>{{$tracker->name_of_subject}}</td>
+                          <td>{{$tracker->behaviour}}</td>
+                          <td>{{$tracker->current_grade}}</td>
+                        {{-- <td>{{$tracker->areas_to_improve}}</td>  --}}
+                          {{-- <td>{{$tracker->procedure_to_use_medicine}}</td> --}}
+                          <td>{{$tracker->feedback}}</td>
                         </tr>
                         @empty
                         <td>You have no updates</td>

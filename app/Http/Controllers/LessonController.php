@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Time;
-use App\Models\Prescription;
+use App\Models\Tracker;
 class LessonController extends Controller
 {
     /**

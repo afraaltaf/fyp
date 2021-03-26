@@ -28,7 +28,7 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Tutors</h6>
+                                                <h6>Doctors</h6>
                                                 <h2>{{App\Models\User::where('role_id',1)->count()}}</h2>
                                             </div>
                                             <div class="icon">
@@ -86,8 +86,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Prescription</h6>
-                                                <h2>{{App\Models\Prescription::count()}}</h2>
+                                                <h6>Tracker</h6>
+                                                <h2>{{App\Models\Tracker::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-align-justify"></i>
@@ -106,8 +106,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>Department</h6>
-                                                <h2>{{App\Models\Department::count()}}</h2>
+                                                <h6>Subject</h6>
+                                                <h2>{{App\Models\Subject::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-home"></i>

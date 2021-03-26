@@ -25,7 +25,7 @@
                           <th scope="col">Time</th>
                           <th scope="col">Tutor</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Prescription</th>
+                          <th scope="col">Tracker</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -42,7 +42,7 @@
                           <td>{{$parent->user->phone_number}}</td>
                           <td>{{$parent->user->gender}}</td>
                           <td>{{$parent->time}}</td>
-                          <td>{{$parent->tutor->name}}</td>
+                          <td>{{$parent->doctor->name}}</td>
                           <td>
                             @if($parent->status==1)
                              checked
@@ -51,7 +51,7 @@
                           <td>
                               <!-- Button trigger modal -->
               
-                   <a href="{{route('prescription.show',[$parent->user_id,$parent->date])}}" class="btn btn-secondary">View prescription</a>
+                   <a href="{{route('tracker.show',[$parent->user_id,$parent->date])}}" class="btn btn-secondary">View Tracker</a>
           
 
                                

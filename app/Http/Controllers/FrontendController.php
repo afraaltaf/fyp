@@ -2,60 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Time;
 use App\Models\User;
 use App\Models\Booking;
-use App\Models\Prescription;
+use App\Models\Tracker;
 use App\Mail\LessonMail;
-
 class FrontendController extends Controller
 {
     
     public function index()
     {
-    	date_default_timezone_set('Europe/London');
+    	date_default_timezone_set('Australia/Melbourne');
         if(request('date')){
-            $tutors = $this->findTutorsBasedOnDate(request('date'));
-            return view('welcome',compact('tutors'));
+            $doctors = $this->findDoctorsBasedOnDate(request('date'));
+            return view('welcome',compact('doctors'));
         }
-        $tutors = Lesson::where('date',date('Y-m-d'))->get();
-    	return view('welcome',compact('tutors'));
+        $doctors = Lesson::where('date',date('Y-m-d'))->get();
+    	return view('welcome',compact('doctors'));
     }
 
-    public function show($tutorId,$date)
+    public function show($doctorId,$date)
     {
-        $lesson = Lesson::where('user_id',$tutorId)->where('date',$date)->first();
+        $lesson = Lesson::where('user_id',$doctorId)->where('date',$date)->first();
         $times = Time::where('lesson_id',$lesson->id)->where('status',0)->get();
-        $user = User::where('id',$tutorId)->first();
-        $tutor_id = $tutorId;
+        $user = User::where('id',$doctorId)->first();
+        $doctor_id = $doctorId;
 
-        return view(lesson,compact('times','date','user','tutor_id'));
+        return view('lesson',compact('times','date','user','doctor_id'));
     }
 
-    public function findTutorsBasedOnDate($date)
+    public function findDoctorsBasedOnDate($date)
     {
-        $tutors = Lesson::where('date',$date)->get();
-        return $tutors;
+        $doctors = Lesson::where('date',$date)->get();
+        return $doctors;
 
     }
 
     public function store(Request $request)
     {
-        date_default_timezone_set('Europe/London');
+        date_default_timezone_set('Australia/Melbourne');
         
         $request->validate(['time'=>'required']);
         $check=$this->checkBookingTimeInterval();
         if($check){
-            return redirect()->back()->with('message','You have already booked a lesson today.');
+            return redirect()->back()->with('message','You have already booked an lesson.Please wait to make next lesson');
         }
-         
+   
         
         Booking::create([
             'user_id'=> auth()->user()->id,
-            'tutor_id'=> $request->tutorId,
+            'doctor_id'=> $request->doctorId,
             'time'=> $request->time,
             'date'=> $request->date,
             'status'=>0
@@ -65,12 +63,12 @@ class FrontendController extends Controller
             ->where('time',$request->time)
             ->update(['status'=>1]);
         //send email notification
-        $tutorName = User::where('id',$request->tutorId)->first();
+        $doctorName = User::where('id',$request->doctorId)->first();
         $mailData = [
             'name'=>auth()->user()->name,
             'time'=>$request->time,
             'date'=>$request->date,
-            'tutorName' => $tutorName->name
+            'doctorName' => $doctorName->name
 
         ];
         try{
@@ -80,67 +78,12 @@ class FrontendController extends Controller
 
         }
 
-        return redirect()->back()->with('message','Your lesson has been booked');
-
-
-    }
-  
-    public function edit($id)
-    {
-
-        $lesson = Lesson::where('user_id',$tutorId)->where('date',$date)->first();
-        $times = Time::where('lesson_id',$lesson->id)->where('status',0)->get();
-        $user = User::where('id',$tutorId)->first();
-        $tutor_id = $tutorId;
-
-        return view(lesson,compact('times','date','user','tutor_id'));
-    }
-
-
-    public function update(Request $request, $id)
-    {
-		
-        date_default_timezone_set('Europe/London');
-        
-        $request->validate(['time'=>'required']);
-        $check=$this->checkBookingTimeInterval();
-        if($check){
-            return redirect()->back()->with('message','You have already booked a lesson.');
-        }
-   
-        Booking::find($id)([
-            'user_id'=> auth()->user()->id,
-            'tutor_id'=> $request->tutorId,
-            'time'=> $request->time,
-            'date'=> $request->date,
-            'status'=>0
-        ]);
-
-        Time::where('lesson_id',$request->lessonId)
-            ->where('time',$request->time)
-            ->update(['status'=>1]);
-        //send email notification
-        $tutorName = User::where('id',$request->tutorId)->first();
-        $mailData = [
-            'name'=>auth()->user()->name,
-            'time'=>$request->time,
-            'date'=>$request->date,
-            'tutorName' => $tutorName->name
-
-        ];
-        try{
-           // \Mail::to(auth()->user()->email)->send(new LessonMail($mailData));
-
-        }catch(\Exception $e){
-
-        }
-
-        return redirect()->back()->with('message','Your lesson was successfully amended');
+        return redirect()->back()->with('message','Your lesson was booked');
 
 
     }
 
-    public function destroy($id)
+ public function destroy($id)
     {
         
        $booking = Booking::find($id);
@@ -165,22 +108,22 @@ class FrontendController extends Controller
         return view('booking.index',compact('lessons'));
     }
 
-    public function myPrescription()
+    public function myTracker()
     {
-        $prescriptions = Prescription::where('user_id',auth()->user()->id)->get();
-        return view('my-prescription',compact('prescriptions'));
+        $trackers = Tracker::where('user_id',auth()->user()->id)->get();
+        return view('my-tracker',compact('trackers'));
     }
 
-    public function tutorToday(Request $request)
+    public function doctorToday(Request $request)
     {
-        $tutors = Lesson::with('tutor')->whereDate('date',date('Y-m-d'))->get();
-        return $tutors;
+        $doctors = Lesson::with('doctor')->whereDate('date',date('Y-m-d'))->get();
+        return $doctors;
     }
 
-    public function findTutors(Request $request)
+    public function findDoctor(Request $request)
     {
-        $tutors = Lesson::with('tutor')->whereDate('date',$request->date)->get();
-        return $tutors;
+        $doctors = Lesson::with('doctor')->whereDate('date',$request->date)->get();
+        return $doctors;
     }
 
 

@@ -15,7 +15,7 @@
              <ul class="navbar-nav mr-auto">
         <li><a class="nav-link" href="/index">Home<span class="sr-only"></span></a>
         </li>
-        <a class="nav-link" href="/tutor">Tutor Profiles<span class="sr-only"></span></a>
+        <a class="nav-link" href="/doctor">Tutor Profiles<span class="sr-only"></span></a>
     </li>
         <li><a class="nav-link"  href="/records/create">Add Child Details<span class="sr-only"></span></a>
             

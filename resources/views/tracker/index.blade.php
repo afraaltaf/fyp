@@ -52,7 +52,7 @@
                           <td>{{$booking->user->current_academic_year}}</td>
                           <td>{{$booking->user->relationship_to_student}}</td>
                           <td>{{$booking->time}}</td>
-                          <td>{{$booking->doctor->name}}</td>
+                          <td>{{$booking->tutor->name}}</td>
                           <td>
                             @if($booking->status==1)
                              checked
@@ -61,7 +61,7 @@
                           <td>
                               <!-- Button trigger modal -->
                        
-                @if(!App\Models\Tracker::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
+                @if(!App\Models\Tracker::where('date',date('Y-m-d'))->where('tutor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
                                 Input Progress
                     </button>

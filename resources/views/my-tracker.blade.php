@@ -14,13 +14,13 @@
                         <tr>
                           
                           <th scope="col">Date</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Tutor</th>
                           <th scope="col">Subject</th>
                           <th scope="col">Behaviour</th>
                           <th scope="col">Grade(currently working at)</th>
                           {{-- <th scope="col">Areas to Improve</th> --}}
                           {{-- <th scope="col">procedure to use medicine</th> --}}
-                          <th scope="col">Doctor Feedback</th>
+                          <th scope="col">Tutor Feedback</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -28,7 +28,7 @@
                         <tr>
                          
                           <td>{{$tracker->date}}</td>
-                          <td>{{$tracker->doctor->name}}</td>
+                          <td>{{$tracker->tutor->name}}</td>
                           <td>{{$tracker->name_of_subject}}</td>
                           <td>{{$tracker->behaviour}}</td>
                           <td>{{$tracker->current_grade}}</td>

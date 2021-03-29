@@ -2,7 +2,7 @@
 
    @section('content')
    <a href="/events" class = "btn btn-default">Go Back</a>
-        <h1>{{$event->doctorName}}</h1>
+        <h1>{{$event->tutorName}}</h1>
         <div>
              {!!$event->subject!!}
         </div>

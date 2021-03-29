@@ -8,7 +8,7 @@ class Tracker extends Model
 {
     protected $guarded = [ ];
     
-   public function doctor()
+   public function tutor()
   {
   	return $this->belongsTo(User::class);
   }

@@ -10,8 +10,8 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Doctors</h5>
-                    <span>appoinment time</span>
+                    <h5>Tutors</h5>
+                    <span>Appoinment time</span>
                     
                 </div>
             </div>
@@ -239,7 +239,7 @@
             <tr>
             
               <th scope="row"></th>
-              <td>{{$lesson->doctor->name}}</td>
+              <td>{{$lesson->tutor->name}}</td>
               <td>{{$lesson->date}}</td>
               <td>
                     <form action="{{route('lesson.check')}}" method="post">@csrf

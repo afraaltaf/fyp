@@ -11,7 +11,7 @@ class TrackerController extends Controller
     {
 
     	date_default_timezone_set('Europe/London');
-		$bookings =  Booking::where('date',date('Y-m-d'))->where('status',1)->where('doctor_id',auth()->user()->id)->get();
+		$bookings =  Booking::where('date',date('Y-m-d'))->where('status',1)->where('tutor_id',auth()->user()->id)->get();
 		return view('tracker.index',compact('bookings'));
     }
    

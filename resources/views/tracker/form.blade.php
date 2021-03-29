@@ -13,7 +13,7 @@
       <div class="modal-body" id="app">
 
         <input type="hidden" name="user_id" value="{{$booking->user_id}}">
-        <input type="hidden" name="doctor_id" value="{{$booking->doctor_id}}">
+        <input type="hidden" name="tutor_id" value="{{$booking->tutor_id}}">
         <input type="hidden" name="date" value="{{$booking->date}}">
         
         <div class="form-group">

@@ -18,7 +18,7 @@ class CreateTrackersTable extends Migration
             $table->string('name_of_subject')->default("");
             $table->string('behaviour')->default("");;
             $table->integer('user_id');
-            $table->integer('doctor_id');
+            $table->integer('tutor_id');
             $table->string('date');
             $table->text('current_grade')->default("");;
             //$table->text('areas_to_improve');

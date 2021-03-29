@@ -27,7 +27,7 @@ use App\Http\Controllers\FullCalendarController;
 Route::get('/','FrontendController@index');
 
 
-Route::get('/new-lesson/{doctorId}/{date}','FrontendController@show')->name('create.lesson');
+Route::get('/new-lesson/{tutorId}/{date}','FrontendController@show')->name('create.lesson');
 // Route::get('/new-lesson/{tutorId}/{date}','FrontendController@update')->name('create.lesson');
 
 
@@ -59,7 +59,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware'=>['auth','admin']],function(){
-	Route::resource('doctor','DoctorController');
+	Route::resource('tutor','TutorController');
 	Route::get('/parents','ParentRecController@index')->name('parent');
 	Route::get('/parents/all','ParentRecController@allTimeLesson')->name('all.lessons');
 	Route::get('/status/update/{id}','ParentRecController@toggleStatus')->name('update.status');
@@ -68,7 +68,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
 });
 
-Route::group(['middleware'=>['auth','doctor']],function(){
+Route::group(['middleware'=>['auth','tutor']],function(){
 
 	Route::resource('lesson','LessonController');
 	Route::post('/lesson/check','LessonController@check')->name('lesson.check');

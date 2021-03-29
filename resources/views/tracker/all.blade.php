@@ -42,7 +42,7 @@
                           <td>{{$parent->user->phone_number}}</td>
                           <td>{{$parent->user->gender}}</td>
                           <td>{{$parent->time}}</td>
-                          <td>{{$parent->doctor->name}}</td>
+                          <td>{{$parent->tutor->name}}</td>
                           <td>
                             @if($parent->status==1)
                              checked

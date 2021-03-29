@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <p>Date:{{$tracker->date}}</p>
                     <p>Parent:{{$tracker->user->name}}</p>
-                    <p>Tutor:{{$tracker->doctor->name}}</p>
+                    <p>Tutor:{{$tracker->tutor->name}}</p>
                     <p>Subject:{{$tracker->name_of_subject}}</p>
                     <p>Behaviour:{{$tracker->behaviour}}</p>
                     <p>Grade (working at):{{$tracker->current_grade}}</p>

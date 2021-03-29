@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/doctors/today','FrontendController@doctorToday');
-Route::post('/finddoctors','FrontendController@findDoctor');
+Route::get('/tutors/today','FrontendController@tutorToday');
+Route::post('/findtutors','FrontendController@findTutor');
 
 

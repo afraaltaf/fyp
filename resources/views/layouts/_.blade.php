@@ -60,20 +60,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                       @forelse($doctors as $doctor)
+                       @forelse($tutors as $tutor)
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <img src="{{asset('images')}}/{{$doctor->doctor->image}}" width="100px" style="border-radius: 50%;">
+                                <img src="{{asset('images')}}/{{$tutor->tutor->image}}" width="100px" style="border-radius: 50%;">
                             </td>
                             <td>
-                                {{$doctor->doctor->name}}
+                                {{$tutor->tutor->name}}
                             </td>
                             <td>
-                                {{$doctor->doctor->subject}}
+                                {{$tutor->tutor->subject}}
                             </td>
                             <td>
-                                <a href="{{route('create.lesson',[$doctor->user_id,$doctor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
+                                <a href="{{route('create.lesson',[$tutor->user_id,$tutor->date])}}"><button class="btn btn-success">Book Lesson</button></a>
                             </td>
                         </tr>
                         @empty

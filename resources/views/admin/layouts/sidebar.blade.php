@@ -35,15 +35,15 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Doctor</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Tutor</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('doctor.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('doctor.index')}}" class="menu-item">View</a>
+                                        <a href="{{route('tutor.create')}}" class="menu-item">Create</a>
+                                        <a href="{{route('tutor.index')}}" class="menu-item">View</a>
                                        
                                     </div>
                                 </div>
                                 @endif
-                                  @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                  @if(auth()->check()&& auth()->user()->role->name === 'tutor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lesson Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -54,7 +54,7 @@
                                 </div>
                                 @endif
 
-                                @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                @if(auth()->check()&& auth()->user()->role->name === 'tutor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Parents</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">

@@ -114,7 +114,7 @@
                             <option value="">Please select</option>
 
                             @foreach(App\Models\Subject::all() as $d)
-                                <option value="{{$s->subject}}">{{$s->subject}}</option>
+                                <option value="{{$d->subject}}">{{$d->subject}}</option>
                             @endforeach
                         </select>
 

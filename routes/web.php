@@ -28,7 +28,6 @@ Route::get('/','FrontendController@index');
 
 
 Route::get('/new-lesson/{tutorId}/{date}','FrontendController@show')->name('create.lesson');
-// Route::get('/new-lesson/{tutorId}/{date}','FrontendController@update')->name('create.lesson');
 
 
 Route::group(['middleware'=>['auth','parent']],function(){
@@ -95,10 +94,7 @@ Route::group(['middleware'=>['auth','tutor']],function(){
 //Auth::routes();
 
 
-//Route::get('/index', 'App\Http\Controllers\PagesController@index');
-//Route::get('/booking', 'App\Http\Controllers\PagesController@booking');
-//Route::get('/services', 'App\Http\Controllers\PagesController@services');
-//Route::get('/tutor', 'App\Http\Controllers\PagesController@tutor');
+
 
 //Route::resource('/posts', 'App\Http\Controllers\PostsController');
 //Route::resource('/records', 'App\Http\Controllers\ChildController');

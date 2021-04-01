@@ -14,13 +14,11 @@
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}}</p>
                     <p>Email: {{auth()->user()->email}}</p>
-                    {{-- <p>Address: {{auth()->user()->address}}</p> --}}
                     <p>Phone Number: {{auth()->user()->phone_number}}</p>
                     <p>Gender: {{auth()->user()->gender}}</p>
                     <p>Student's Name: {{auth()->user()->student_name}}</p>
                     <p>Current Academic Year: {{auth()->user()->current_academic_year}}</p>
                     <p>Relationship to Student: {{auth()->user()->relationship_to_student}}</p>
-                    {{-- <p>Description: {{auth()->user()->description}}</p> --}}
             
 
                 </div>
@@ -42,11 +40,7 @@
                                 @enderror
                             
                         </div>
-                        {{-- <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}">
-                            
-                        </div> --}}
+        
                         <div class="form-group">
                             <label>Phone number</label>
                             <input type="text" name="phone_number" class="form-control" value="{{auth()->user()->phone_number}}">    
@@ -63,11 +57,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        {{-- <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea name="description" class="form-control" value = {{auth()->user()->description}}> </textarea>
-                                    
-                         </div> --}}
+                        
                         <div class="form-group">
                                     <label>Student's Name</label>
                                     <input type= "text" name="student_name" class="form-control" value = {{auth()->user()->student_name}}> 

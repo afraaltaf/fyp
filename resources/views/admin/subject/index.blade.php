@@ -9,7 +9,7 @@
             <i class="ik ik-inbox bg-blue"></i>
             <div class="d-inline">
                 <h5>Subjects</h5>
-                <span>Suject List:</span>
+                <span>Subject List:</span>
             </div>
         </div>
     </div>

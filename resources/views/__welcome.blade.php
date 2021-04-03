@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <!--<img src="/banner/online-medicine-concept_160901-152.jpg" class="img-fluid" style="border:1px solid #ccc;"> -->
+           // <img src="/banner/online-medicine-concept_160901-152.jpg" class="img-fluid" style="border:1px solid #ccc;">
             <img src="" class="img-fluid" style="border:1px solid #ccc;">
         </div>
         <div class="col-md-6">
@@ -19,6 +19,7 @@
         </div>
     </div>
     <hr>
+    
 <!--Search tutor-->
 <form action="{{url('/')}}" method="GET">
     <div class="card">

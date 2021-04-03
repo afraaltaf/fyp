@@ -34,6 +34,10 @@
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
    <!--for datepicker-->
 
+   {{-- icons --}}
+   <script src="https://kit.fontawesome.com/1fcfbf548a.js" crossorigin="anonymous"></script>
+
+  
         
 </head>
 <body>
@@ -154,6 +158,59 @@
         background:#cea9dd!important;
         color: #fff!important;
     }
+
+
+    .carousel-indicators {
+      bottom:-40px;
+
+    }
+
+    .carousel-indicators li {
+
+     background-color: #cea9dd; 
+    }
+
+   
+   
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-image: none;
+    }
+
+    .carousel-control-next-icon:after
+    {
+    content: '>';
+    padding-right:150em; 
+    font-size: 55px;
+    color:#cea9dd;
+    }
+
+    .carousel-control-prev-icon:after {
+    content: '<';
+    padding-left:-5em; 
+    font-size: 55px;
+    color:#cea9dd;
+    }
+
+    .icon{
+        text-align: center;
+    }
+
+    .icon-text{
+
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25em
+    }
+    
+    
+
+    
 </style>
   
 </body>

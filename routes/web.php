@@ -35,7 +35,6 @@ Route::group(['middleware'=>['auth','parent']],function(){
 	Route::post('/book/lesson','FrontendController@store')->name('booking.lesson');
    // Route::post('/book/lesson','FrontendController@update')->name('booking.lesson');
 	Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
-
     //Route::post('/my-booking', 'FrontendController@destroy')->name('delete');
     Route::get('/my-booking/{id}/destroy', 'FrontendController@destroy')->name('destroy');
 	Route::post('my-booking', 'FrontendController@destroy')->name('delete');

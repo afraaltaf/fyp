@@ -40,25 +40,21 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'date'=>'required|unique:lessons,date,NULL,id,user_id,'.\Auth::id(),
-            'time'=>'required',
-            
-    
+            'date'=>'required|unique:appointments,date,NULL,id,user_id,'.\Auth::id(),
+            'time'=>'required'
         ]);
         $lesson = Lesson::create([
             'user_id'=> auth()->user()->id,
-            'date' => $request->date,
-            
+            'date' => $request->date
         ]);
         foreach($request->time as $time){
             Time::create([
                 'lesson_id'=> $lesson->id,
                 'time'=> $time,
-                
                 //'stauts'=>0
             ]);
         }
-        return redirect()->back()->with('message','Lesson created for'. $request->date);
+        return redirect()->back()->with('message','Appointment created for'. $request->date);
        
     }
 
@@ -71,7 +67,6 @@ class LessonController extends Controller
     public function show($id)
     {
         //
-       
     }
 
     /**
@@ -112,7 +107,7 @@ class LessonController extends Controller
 
         $date = $request->date;
         $lesson= Lesson::where('date',$date)->where('user_id',auth()->user()->id)->first();
-        if(!$lesson){
+        if(!$appointment){
             return redirect()->to('/lesson')->with('errmessage','Lesson time not available for this date');
         }
         $lessonId = $lesson->id;
@@ -132,7 +127,7 @@ class LessonController extends Controller
                 'status'=>0
             ]);
         }
-        return redirect()->route('lesson.index')->with('message','Lesson time updated.');
+        return redirect()->route('lesson.index')->with('message','Lesson time updated!');
     }
 
 

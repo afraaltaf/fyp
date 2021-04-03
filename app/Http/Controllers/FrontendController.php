@@ -123,7 +123,7 @@ class FrontendController extends Controller
 
     public function findTutor(Request $request)
     {
-        $tutors = Lesson::with('do')->whereDate('date',$request->date)->get();
+        $tutors =Lesson::with('tutor')->whereDate('date',$request->date)->get();
         return $tutors;
     }
 

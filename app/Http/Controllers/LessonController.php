@@ -40,7 +40,7 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'date'=>'required|unique:appointments,date,NULL,id,user_id,'.\Auth::id(),
+            'date'=>'required|unique:lessons,date,NULL,id,user_id,'.\Auth::id(),
             'time'=>'required'
         ]);
         $lesson = Lesson::create([
@@ -54,7 +54,7 @@ class LessonController extends Controller
                 //'stauts'=>0
             ]);
         }
-        return redirect()->back()->with('message','Appointment created for'. $request->date);
+        return redirect()->back()->with('message','Lesson booked for' . $request->date);
        
     }
 
@@ -107,7 +107,7 @@ class LessonController extends Controller
 
         $date = $request->date;
         $lesson= Lesson::where('date',$date)->where('user_id',auth()->user()->id)->first();
-        if(!$appointment){
+        if(!$lesson){
             return redirect()->to('/lesson')->with('errmessage','Lesson time not available for this date');
         }
         $lessonId = $lesson->id;

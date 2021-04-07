@@ -6,7 +6,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Your lessons({{$lessons->count()}})</div>
-b
+
                 <div class="card-body">
                     <table class="table table-striped">
                       <thead>
@@ -31,9 +31,9 @@ b
                           <td>{{$lesson->created_at}}</td>
                           <td>
                               @if($lesson->status==0)
-                              <button class="btn btn-primary">Not visited</button>
+                              <button class="btn btn-primary">Not Attended</button>
                               @else 
-                              <button class="btn btn-success"> Checked</button>
+                              <button class="btn btn-success">Attended</button>
                               @endif
                           </td>
                             <td>
@@ -45,7 +45,7 @@ b
                           </td>
                           <td>
                             <a type="button" class="btn btn-danger"
-                               href="{{ route('destroy', $lesson->id) }}">Delete</a>
+                               href="{{ route('destroy', $lesson->id) }}">Cancel Booking</a>
                           </td>
                         </tr>
                         @empty

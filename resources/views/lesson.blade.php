@@ -66,9 +66,9 @@
                 @if(Auth::check())
                 <button type="submit" class="btn btn-success" style="width: 100%;">Book Lesson</button>
                 @else 
-                    <p>Please login to book a lesson</p>
-                    <a href="/register">Register</a>
-                    <a href="/login">Login</a>
+                    <p>Please Register or Login to book lesson</p>
+                    <a href="/register"><button class="btn btn-success">Register</button></a>
+                    <a href="/login"><button class="btn btn-secondary">Login</button></a>
                 @endif
 
                    

@@ -18,9 +18,7 @@
                                 <div class="nav-item active">
                                     <a href="{{url('dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
-                              <!--   <div class="nav-item">
-                                    <a href="pages/navbar.html"><i class="ik ik-menu"></i><span>Navigation</span> <span class="badge badge-success">New</span></a>
-                                </div> -->
+                
 
                                 @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
@@ -47,8 +45,8 @@
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Lesson Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('lesson.create')}}" class="menu-item">Create</a>
-                                        <a href="{{route('lesson.index')}}" class="menu-item">Check</a>
+                                        <a href="{{route('lesson.create')}}" class="menu-item">Add Lesson Availability</a>
+                                        <a href="{{route('lesson.index')}}" class="menu-item">Update Lesson Availability</a>
                                        
                                     </div>
                                 </div>
@@ -56,10 +54,10 @@
 
                                 @if(auth()->check()&& auth()->user()->role->name === 'tutor')
                                    <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Parents</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Students</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
-                                        <a href="{{route('parents.today')}}" class="menu-item">Lessons Today</a>
-                                        <a href="{{route('tracked.parents')}}" class="menu-item">Lesson and Progress History</a>
+                                        <a href="{{route('parents.today')}}" class="menu-item">Your Lessons Today</a>
+                                        <a href="{{route('tracked.parents')}}" class="menu-item">Your Lesson History</a>
                                        
                                     </div>
                                 </div>

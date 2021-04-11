@@ -21,12 +21,8 @@ class CreateTrackersTable extends Migration
             $table->integer('tutor_id');
             $table->string('date');
             $table->text('current_grade')->default("");;
-            //$table->text('areas_to_improve');
-           // $table->text('procedure_to_use_medicine');
             $table->text('feedback')->default("");;
             $table->string('signature');
-            
-
             $table->timestamps();
 
             

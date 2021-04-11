@@ -7,7 +7,7 @@
           <img src="/frontPage/Logo.jpg" class="img-fluid" style="">
             <img src="" class="img-fluid" style="">
         </div>
-        <div class="col-md-6">
+        <div class="welcome-text col-md-6 ">
             <h2>Tutor Scheduling System</h2>
             <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -18,64 +18,42 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        
-        <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        
-
-        <div class="carousel-inner">
-          <div class="carousel-item active ">
-            <div class = "icon">
-            <i class="fas fa-chalkboard-teacher fa-10x" ></i>
-            </div>
-            <br>
-            <p class="icon-text" >Select from our range of qualified tutors</p> 
-          </div>
-
-          <div class="carousel-item">
-            <div class = "icon">
-                <i class="far fa-calendar-alt fa-10x"></i>
-                </div>
-                <br>
-                <p class="icon-text" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus voluptates porro provident deleniti voluptate, non velit. Quibusdam, ratione ea doloremque fugit nemo asperiores facere beatae 
-                    nihil delectus, exercitationem, facilis explicabo!</p> 
-              </div>
-            
-
-            <div class="carousel-item">
-                <div class = "icon">
-                    <i class="fas fa-chart-line fa-10x"></i>
-                    </div>
-                    <br>
-                    <p class="icon-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus voluptates porro provident deleniti voluptate, non velit. Quibusdam, ratione ea doloremque fugit nemo asperiores facere beatae 
-                        nihil delectus, exercitationem, facilis explicabo!</p> 
-                  </div>
-                
     
-
+    <div class= "card-deck">
+      
+      <div class="card text-center border-color mb-3" style="width: 18rem; height: 20rem;">
+        <br>
+        <i class="far fa-calendar-alt fa-10x"></i>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           
-
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      </div> 
+    
+      <div class="card text-center border-color mb-3" style="width: 18rem; height: 20rem;">
+      <br>
+      <i class="fas fa-chalkboard-teacher fa-10x" ></i>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
       </div>
+    </div>    
+    
+    <div class="card text-center border-color mb-3" style="width: 18rem; height: 20rem;">
+      <br>
+      <i class="fas fa-chart-line fa-10x"></i>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+      </div>
+    </div> 
+  </div>
     <br>
     <br>
   <!--date picker component-->
- <find-tutor></find-tutor>
+<find-tutor></find-tutor>
 </div>
 @endsection

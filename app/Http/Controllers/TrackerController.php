@@ -18,22 +18,16 @@ class TrackerController extends Controller
 
     public function store(Request $request)
     {
-    	$data  = $request->all();
-    	//$data['areas_to_improve'] = implode(',',$request->areas_to_improve);
+    	$data  = $request->all();;
     	Tracker::create($data);
     	return redirect()->back()->with('message','Progress Inputted');
 
-    //     $data  = $request->all();
-    // 	$data['medicine'] = implode(',',$request->medicine);
-    // 	Tracker::create($data);
-    // 	return redirect()->back()->with('message','Tracker created');
-    
     }
 
     public function show($userId,$date)
     {
         $tracker = Tracker::where('user_id',$userId)->where('date',$date)->first();
-        return view('tracker.show',compact('trackers'));
+        return view('tracker.show', compact('tracker'));
     }
 
     //get all parents from tracker table

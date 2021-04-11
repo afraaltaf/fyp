@@ -25,6 +25,7 @@ use App\Http\Controllers\FullCalendarController;
 //Route::get('/event','EventController@index');
 
 Route::get('/','FrontendController@index');
+// Route::get('/booking','FrontendController@findTutor')->name('calendar');
 
 
 Route::get('/new-lesson/{tutorId}/{date}','FrontendController@show')->name('create.lesson');

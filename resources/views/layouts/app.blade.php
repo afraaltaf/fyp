@@ -69,9 +69,16 @@
                             <li class="nav-item">
                                 <a style="color: #fff; font-size:16px; font-weight: bold;" class="nav-link" href="{{ route('my.tracker') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('Progress Tracker') }}</a>
                             </li>
+                            {{-- <li class="nav-item">
+                                <a style="color: #fff; font-size:16px; font-weight: bold;"  class="nav-link" href="{{ route('calendar') }}">Book</a>
+                            </li> --}}
                         @endif
                         <!-- Authentication Links -->
                         @guest
+                            {{-- <li class="nav-item">
+                                <a style="color: #fff; font-size:16px; font-weight: bold;"  class="nav-link" href="{{ route('calendar') }}">Book</a>
+                            </li> --}}
+                            
                             <li class="nav-item">
                                 <a style="color: #fff; font-size:16px; font-weight: bold;"  class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -129,6 +136,25 @@
 });
 
   </script>
+  <script>
+      $(document).ready(function() {
+    $persons = $("#behaviours").children().children().children().slice(2);
+    $cells = $($persons).find('.behaviour');
+    $($cells).each(function( index ) {
+       console.log($(this).html());
+        if ($(this).html() == "excellent") {
+            $(this).css("background-color", "orange");
+        }
+    	else if ($(this).html() == "ziek" ) {
+            $(this).css("background-color", "green");
+        }
+        else if ($(this).html() == "verlof" ) {
+            $(this).css("background-color", "red");
+        }
+        
+    });
+});
+  </script>
 <style type="text/css">
   body{
         background: #fff;
@@ -160,57 +186,21 @@
     }
 
 
-    .carousel-indicators {
-      bottom:-40px;
 
-    }
-
-    .carousel-indicators li {
-
-     background-color: #cea9dd; 
-    }
-
-   
-   
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-    height: 100px;
-    width: 100px;
-    outline: black;
-    background-size: 100%, 100%;
-    background-image: none;
-    }
-
-    .carousel-control-next-icon:after
-    {
-    content: '>';
-    padding-right:150em; 
-    font-size: 55px;
-    color:#cea9dd;
-    }
-
-    .carousel-control-prev-icon:after {
-    content: '<';
-    padding-left:-5em; 
-    font-size: 55px;
-    color:#cea9dd;
-    }
-
-    .icon{
-        text-align: center;
-    }
-
-    .icon-text{
-
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        width: 25em
+    .border-color {
+        border-style: solid;
+        border-color:#cea9dd;
     }
     
-    
+    .welcome-text {
 
-    
+        text-align:center; 
+        padding-top: 10em;
+    }
+
+ 
+
+
 </style>
   
 </body>

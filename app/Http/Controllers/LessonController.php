@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Time;
-use App\Models\Tracker;
+use App\Tracker;
 class LessonController extends Controller
 {
     /**
@@ -54,7 +54,7 @@ class LessonController extends Controller
                 //'stauts'=>0
             ]);
         }
-        return redirect()->back()->with('message','Lesson booked for' . $request->date);
+        return redirect()->back()->with('message','Lesson created for'. $request->date);
        
     }
 
@@ -127,7 +127,7 @@ class LessonController extends Controller
                 'status'=>0
             ]);
         }
-        return redirect()->route('lesson.index')->with('message','Lesson time updated!');
+        return redirect()->route('lesson.index')->with('message','lesson time updated!!');
     }
 
 

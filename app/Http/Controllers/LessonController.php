@@ -118,7 +118,9 @@ class LessonController extends Controller
     }
 
     public function updateTime(Request $request){
+        //dd($request->appoinmentId);
         $lessonId = $request->lessonId;
+        //$lessonId = $request->appoinmentId;
         $lesson = Time::where('lesson_id',$lessonId)->delete();
         foreach($request->time as $time){
             Time::create([
